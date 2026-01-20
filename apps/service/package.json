@@ -1,0 +1,22 @@
+{
+  "name": "app/service",
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "test": "vitest",
+    "dev": "encore run"
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.7",
+    "@types/tmi.js": "^1.8.6",
+    "typescript": "^5.2.2",
+    "vitest": "^1.5.0"
+  },
+  "dependencies": {
+    "encore.dev": "^1.53.7",
+    "tmi.js": "^1.8.5"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "^4.13.0"
+  }
+}
