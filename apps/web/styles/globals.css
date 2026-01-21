@@ -1,0 +1,28 @@
+@import 'tailwindcss';
+
+:root {
+  --font-sf-pro: var(--font-sf-pro);
+}
+
+@theme inline {
+  --font-sans: var(--font-sf-pro);
+}
+
+body {
+  font-family: var(--font-sf-pro);
+}
+
+.squircle {
+  corner-shape: squircle;
+}
+
+.progress-bar-mask {
+  mask-image: url('/masks/progess-bar.png');
+  -webkit-mask-image: url('/masks/progess-bar.png');
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+}
