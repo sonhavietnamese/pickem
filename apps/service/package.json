@@ -13,7 +13,10 @@
     "vitest": "^1.5.0"
   },
   "dependencies": {
+    "@privy-io/node": "^0.8.0",
+    "@solana/web3.js": "^1.98.4",
     "encore.dev": "^1.53.7",
+    "pnp-sdk": "^0.2.6",
     "tmi.js": "^1.8.5"
   },
   "optionalDependencies": {

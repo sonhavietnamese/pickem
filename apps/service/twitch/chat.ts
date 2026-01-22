@@ -1,7 +1,7 @@
 import { api } from 'encore.dev/api'
 import tmi from 'tmi.js'
 
-const channels = ['dima_wallhacks']
+const channels = ['']
 
 let client: tmi.Client | null = null
 let isConnected = false
@@ -73,7 +73,7 @@ export const start = api(
   { expose: true, method: 'GET', path: '/twitch/start' },
   async (): Promise<{ success: boolean; message: string }> => {
     return startListening()
-  },
+  }
 )
 
 // API endpoint to stop listening
@@ -81,7 +81,7 @@ export const stop = api(
   { expose: true, method: 'POST', path: '/twitch/stop' },
   async (): Promise<{ success: boolean; message: string }> => {
     return stopListening()
-  },
+  }
 )
 
 // Start listening automatically when the service starts
