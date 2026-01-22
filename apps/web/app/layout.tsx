@@ -1,6 +1,7 @@
 import '@/styles/globals.css'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
+import Providers from '@/components/providers'
 
 const sfPro = localFont({
   src: '../assets/fonts/SFProRounded-Bold.otf',
@@ -18,7 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${sfPro.variable} antialiased`}>{children}</body>
+      <body className={`${sfPro.variable} antialiased`}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   )
 }
