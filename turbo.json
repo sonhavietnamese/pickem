@@ -6,7 +6,12 @@
     "NEXT_PUBLIC_PRIVY_CLIENT_ID",
     "NEXT_PUBLIC_SIGNER_ID"
   ],
-  "globalPassThroughEnv": ["FUNDING_PRIVATE_KEY", "SOLANA_RPC_URL"],
+  "globalPassThroughEnv": [
+    "FUNDING_PRIVATE_KEY",
+    "SOLANA_RPC_URL",
+    "PRIVY_APP_SECRET",
+    "SIGNER_PRIVATE_KEY"
+  ],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
