@@ -1,6 +1,12 @@
 {
   "$schema": "https://turborepo.dev/schema.json",
   "ui": "tui",
+  "globalEnv": [
+    "NEXT_PUBLIC_PRIVY_APP_ID",
+    "NEXT_PUBLIC_PRIVY_CLIENT_ID",
+    "NEXT_PUBLIC_SIGNER_ID"
+  ],
+  "globalPassThroughEnv": ["FUNDING_PRIVATE_KEY", "SOLANA_RPC_URL"],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
