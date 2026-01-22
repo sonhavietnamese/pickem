@@ -9,13 +9,16 @@
   "devDependencies": {
     "@types/node": "^20.5.7",
     "@types/tmi.js": "^1.8.6",
+    "drizzle-kit": "^0.31.8",
     "typescript": "^5.2.2",
     "vitest": "^1.5.0"
   },
   "dependencies": {
     "@privy-io/node": "^0.8.0",
     "@solana/web3.js": "^1.98.4",
+    "drizzle-orm": "^0.45.1",
     "encore.dev": "^1.53.7",
+    "pg": "^8.17.2",
     "pnp-sdk": "^0.2.6",
     "tmi.js": "^1.8.5"
   },
