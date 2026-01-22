@@ -56,6 +56,24 @@ export default function Page() {
       }
     )
   }
+
+  const handleCreateMarket = async () => {
+    console.log('user', user?.wallet?.address)
+    const wallet = user?.wallet?.address
+    if (!wallet) {
+      return
+    }
+    const response = await fetch('http://localhost:4000/market/create-market', {
+      method: 'POST',
+      body: JSON.stringify({ userId: user?.id }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    const data = await response.json()
+    console.log('data', data)
+  }
+
   if (!ready) {
     return <div>Loading...</div>
   }
@@ -85,6 +103,14 @@ export default function Page() {
       {fund.isError && (
         <p className="text-red-500 mt-2">Error: {fund.error?.message}</p>
       )}
+
+      {/*  */}
+      <button
+        className="bg-blue-500 text-white px-4 py-2 rounded-md"
+        onClick={handleCreateMarket}
+      >
+        Create Market
+      </button>
     </main>
   )
 }
