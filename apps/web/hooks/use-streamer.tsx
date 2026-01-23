@@ -1,6 +1,7 @@
 'use client'
 
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { env } from '@/env'
 
 export interface StreamerDto {
   /** ID of the user */
@@ -59,7 +60,7 @@ interface GetStreamersParams {
   limit?: number
 }
 
-const API_BASE_URL = 'http://localhost:4000'
+const API_BASE_URL = env.NEXT_PUBLIC_API_URL
 
 // Query keys
 export const streamerKeys = {
