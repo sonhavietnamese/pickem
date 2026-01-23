@@ -16,6 +16,7 @@
   "dependencies": {
     "@privy-io/node": "^0.8.0",
     "@solana/web3.js": "^1.98.4",
+    "bs58": "^6.0.0",
     "drizzle-orm": "^0.45.1",
     "encore.dev": "^1.53.7",
     "pg": "^8.17.2",

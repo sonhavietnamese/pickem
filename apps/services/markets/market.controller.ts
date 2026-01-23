@@ -1,8 +1,10 @@
-import { api } from 'encore.dev/api'
-import { connection, pnp, privy } from './libs'
-import { AuthorizationContext, LinkedAccountEmbeddedWallet } from '@privy-io/node'
+import { AuthorizationContext } from '@privy-io/node'
+import { PublicKey } from '@solana/web3.js'
+import { api, APIError } from 'encore.dev/api'
+import { pnp, privy } from './libs'
+import { MarketResponse } from './market.interface'
+import MarketsService from './market.service'
 import { PRIVY_AUTHORIZATION_PRIVATE_KEY } from './secrets'
-import { PublicKey, SystemProgram, VersionedTransaction, TransactionMessage, LAMPORTS_PER_SOL } from '@solana/web3.js'
 
 export const sendTx = api(
   { expose: true, method: 'POST', path: '/market/create-market' },
@@ -73,5 +75,42 @@ export const sendTx = api(
     }
 
     return { message: 'tx sent' }
+  }
+)
+
+export const getMarketsByUsername = api(
+  { expose: true, method: 'GET', path: '/markets/username/:username' },
+  async ({ username }: { username: string }): Promise<MarketResponse> => {
+    try {
+      if (!username) {
+        throw APIError.invalidArgument('Username is required')
+      }
+      const result = await MarketsService.getMarketsByStreamer(username)
+      return result
+    } catch (error) {
+      throw APIError.aborted(error?.toString() || 'Error getting markets')
+    }
+  }
+)
+
+export const createMarket = api(
+  { expose: true, method: 'POST', path: '/markets/create-market' },
+  async ({
+    username,
+    question,
+    initialLiquidity,
+    endTime,
+  }: {
+    username: string
+    question: string
+    initialLiquidity: number
+    endTime: number
+  }): Promise<MarketResponse> => {
+    try {
+      const result = await MarketsService.create({ username, question, initialLiquidity, endTime })
+      return result
+    } catch (error) {
+      throw APIError.aborted(error?.toString() || 'Error creating market')
+    }
   }
 )

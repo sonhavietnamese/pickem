@@ -4,6 +4,7 @@ import { env } from '@/env'
 import { useFund } from '@/hooks/use-fund'
 import { useStreamer } from '@/hooks/use-streamer'
 import { useLogin, usePrivy, useSigners } from '@privy-io/react-auth'
+import { useMarket } from '@/hooks/use-market'
 
 export default function Page() {
   const { ready } = usePrivy()
@@ -19,6 +20,7 @@ export default function Page() {
   const { user } = usePrivy()
   const fund = useFund()
   const { create: createStreamer } = useStreamer()
+  const { create: createMarket } = useMarket()
   const handleLogin = async () => {
     login()
   }
@@ -59,20 +61,26 @@ export default function Page() {
   }
 
   const handleCreateMarket = async () => {
-    console.log('user', user?.wallet?.address)
-    const wallet = user?.wallet?.address
-    if (!wallet) {
+    const twitch = user?.twitch
+    if (!twitch || !twitch.username) {
       return
     }
-    const response = await fetch('http://localhost:4000/market/create-market', {
-      method: 'POST',
-      body: JSON.stringify({ userId: user?.id }),
-      headers: {
-        'Content-Type': 'application/json',
+    createMarket.mutate(
+      {
+        username: twitch.username,
+        question: 'aus!',
+        initialLiquidity: 10000000,
+        endTime: 10 * 60,
       },
-    })
-    const data = await response.json()
-    console.log('data', data)
+      {
+        onSuccess: (data) => {
+          console.log('Market created successfully!', data)
+        },
+        onError: (error) => {
+          console.error('Failed to create market:', error.message)
+        },
+      }
+    )
   }
 
   const handleCreateStreamer = async () => {
