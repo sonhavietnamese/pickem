@@ -15,6 +15,13 @@
       "when": 1769090321386,
       "tag": "0001_strange_eternity",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1769137296441,
+      "tag": "0002_oval_hawkeye",
+      "breakpoints": true
     }
   ]
 }

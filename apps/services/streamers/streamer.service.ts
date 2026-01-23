@@ -1,7 +1,7 @@
-import { CreateStreamerDto, UpdateStreamerDto, Response, StreamerResponse, StreamerDto } from './streamer.interface'
-import { streamers } from './schema'
+import { asc, eq, ilike } from 'drizzle-orm'
 import { db } from './database'
-import { count, sql, eq, asc, ilike } from 'drizzle-orm'
+import { streamers } from './schema'
+import { CreateStreamerDto, Response, StreamerResponse, UpdateStreamerDto } from './streamer.interface'
 import { getOffset, paginatedData } from './utils'
 
 const StreamerService = {
@@ -10,6 +10,20 @@ const StreamerService = {
   },
 
   create: async (data: CreateStreamerDto): Promise<StreamerResponse> => {
+    // Check if streamer with username already exists
+    const [existingStreamer] = await db
+      .select()
+      .from(streamers)
+      .where(ilike(streamers.username, data.username))
+      .limit(1)
+    
+    if (existingStreamer) {
+      return {
+        success: false,
+        message: 'Streamer with this username already exists',
+      }
+    }
+
     const [user] = await db.insert(streamers).values(data).returning()
     return {
       success: true,

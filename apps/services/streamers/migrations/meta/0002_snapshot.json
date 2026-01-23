@@ -1,11 +1,11 @@
 {
-  "id": "c8bd2516-1898-4328-990a-2550860728c5",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "93314aea-8e16-47ef-95b7-11a43a38ff69",
+  "prevId": "0130fa2b-2201-4a69-8d13-3f08ee3fe720",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
-    "public.users": {
-      "name": "users",
+    "public.streamers": {
+      "name": "streamers",
       "schema": "",
       "columns": {
         "id": {
@@ -14,14 +14,14 @@
           "primaryKey": true,
           "notNull": true
         },
-        "name": {
-          "name": "name",
+        "username": {
+          "name": "username",
           "type": "text",
           "primaryKey": false,
           "notNull": true
         },
-        "surname": {
-          "name": "surname",
+        "wallet": {
+          "name": "wallet",
           "type": "text",
           "primaryKey": false,
           "notNull": true
@@ -30,15 +30,7 @@
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {
-        "users_surname_unique": {
-          "name": "users_surname_unique",
-          "nullsNotDistinct": false,
-          "columns": [
-            "surname"
-          ]
-        }
-      },
+      "uniqueConstraints": {},
       "policies": {},
       "checkConstraints": {},
       "isRLSEnabled": false

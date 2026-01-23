@@ -1,116 +1,58 @@
 'use client'
 
-import { env } from '@/env'
-import { useFund } from '@/hooks/use-fund'
-import { useLogin, usePrivy, useSigners } from '@privy-io/react-auth'
+import { useStreamer } from '@/hooks/use-streamer'
+import { use } from 'react'
 
-export default function Page() {
-  const { ready } = usePrivy()
-  const { addSigners } = useSigners()
-  const { login } = useLogin({
-    onComplete: async ({ user }) => {
-      console.log('User logged in successfully', user)
-    },
-    onError: (error) => {
-      console.error('Login failed', error)
-    },
-  })
-  const { user } = usePrivy()
-  const fund = useFund()
+interface PageProps {
+  params: Promise<{
+    username: string
+  }>
+}
 
-  const handleLogin = async () => {
-    login()
-  }
+export default function Page({ params }: PageProps) {
+  const { username } = use(params)
+  const { getByUsername } = useStreamer({ username })
 
-  const handleAddSigner = async () => {
-    console.log('user', user?.wallet?.address)
-    const wallet = user?.wallet?.address
-    if (!wallet) {
-      return
-    }
-    await addSigners({
-      address: wallet!,
-      signers: [{ signerId: env.NEXT_PUBLIC_SIGNER_ID }],
-    })
-  }
-
-  const handleFundWallet = async () => {
-    const wallet = user?.wallet?.address
-    if (!wallet) {
-      console.error('No wallet address found')
-      return
-    }
-
-    fund.mutate(
-      { address: wallet },
-      {
-        onSuccess: (data) => {
-          console.log('Wallet funded successfully!', data)
-          console.log('Transaction signature:', data.signature)
-          console.log('Explorer URL:', data.explorerUrl)
-        },
-        onError: (error) => {
-          console.error('Failed to fund wallet:', error.message)
-          // You can add error toast notification here
-        },
-      }
+  // Loading state
+  if (getByUsername.isLoading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div>Loading...</div>
+      </div>
     )
   }
 
-  const handleCreateMarket = async () => {
-    console.log('user', user?.wallet?.address)
-    const wallet = user?.wallet?.address
-    if (!wallet) {
-      return
-    }
-    const response = await fetch('http://localhost:4000/market/create-market', {
-      method: 'POST',
-      body: JSON.stringify({ userId: user?.id }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-    const data = await response.json()
-    console.log('data', data)
+  // Error state
+  if (getByUsername.isError) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-red-500">
+          Error: {getByUsername.error?.message || 'Failed to load streamer'}
+        </div>
+      </div>
+    )
   }
 
-  if (!ready) {
-    return <div>Loading...</div>
+  // Check if streamer was found
+  const streamer = getByUsername.data?.success
+    ? Array.isArray(getByUsername.data.result)
+      ? getByUsername.data.result[0]
+      : getByUsername.data.result
+    : null
+
+  // Not found state
+  if (!getByUsername.data?.success || !streamer) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-gray-500">Not found</div>
+      </div>
+    )
   }
 
+  // Found - show username
   return (
-    <main className="flex flex-col items-center justify-center h-screen">
-      <h1>Streamer</h1>
-      <button
-        className="bg-blue-500 text-white px-4 py-2 rounded-md"
-        onClick={handleLogin}
-      >
-        Auth w Twitch
-      </button>
-      <button
-        className="bg-blue-500 text-white px-4 py-2 rounded-md"
-        onClick={handleAddSigner}
-      >
-        Add Signer
-      </button>
-      <button
-        className="bg-blue-500 text-white px-4 py-2 rounded-md disabled:opacity-50 disabled:cursor-not-allowed"
-        onClick={handleFundWallet}
-        disabled={fund.isPending || !user?.wallet?.address}
-      >
-        {fund.isPending ? 'Funding...' : 'Fund Wallet'}
-      </button>
-      {fund.isError && (
-        <p className="text-red-500 mt-2">Error: {fund.error?.message}</p>
-      )}
-
-      {/*  */}
-      <button
-        className="bg-blue-500 text-white px-4 py-2 rounded-md"
-        onClick={handleCreateMarket}
-      >
-        Create Market
-      </button>
-    </main>
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="text-2xl font-bold">{streamer.username}</div>
+    </div>
   )
 }

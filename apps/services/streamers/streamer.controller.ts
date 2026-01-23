@@ -5,7 +5,7 @@ import StreamerService from './streamer.service'
 /**
  * Counts and returns the number of existing users
  */
-export const count = api({ expose: true, method: 'GET', path: '/count/users' }, async (): Promise<Response> => {
+export const count = api({ expose: true, method: 'GET', path: '/count/streamers' }, async (): Promise<Response> => {
   try {
     const result = await StreamerService.count()
     return { success: true, result }
@@ -18,7 +18,7 @@ export const count = api({ expose: true, method: 'GET', path: '/count/users' }, 
  * Method to create a new user
  */
 export const create = api(
-  { expose: true, method: 'POST', path: '/users' },
+  { expose: true, method: 'POST', path: '/streamers' },
   async (data: CreateStreamerDto): Promise<StreamerResponse> => {
     try {
       if (!data.username) {
@@ -36,7 +36,7 @@ export const create = api(
  * Get all users data
  */
 export const read = api(
-  { expose: true, method: 'GET', path: '/users' },
+  { expose: true, method: 'GET', path: '/streamers' },
   async ({ page, limit }: { page?: number; limit?: number }): Promise<StreamerResponse> => {
     try {
       const result = await StreamerService.find(page, limit)
@@ -51,7 +51,7 @@ export const read = api(
  * Get user data by id
  */
 export const readOne = api(
-  { expose: true, method: 'GET', path: '/users/:id' },
+  { expose: true, method: 'GET', path: '/streamers/:id' },
   async ({ id }: { id: number }): Promise<StreamerResponse> => {
     try {
       const result = await StreamerService.findOne(id)
@@ -66,7 +66,7 @@ export const readOne = api(
  * Get user data by username
  */
 export const readByUsername = api(
-  { expose: true, method: 'GET', path: '/users/username/:username' },
+  { expose: true, method: 'GET', path: '/streamers/username/:username' },
   async ({ username }: { username: string }): Promise<StreamerResponse> => {
     try {
       if (!username) {
@@ -84,7 +84,7 @@ export const readByUsername = api(
  * Update user data
  */
 export const update = api(
-  { expose: true, method: 'PATCH', path: '/users/:id' },
+  { expose: true, method: 'PATCH', path: '/streamers/:id' },
   async ({ id, data }: { id: number; data: UpdateStreamerDto }): Promise<StreamerResponse> => {
     try {
       const result = await StreamerService.update(id, data)
@@ -99,7 +99,7 @@ export const update = api(
  * Delete user by id
  */
 export const destroy = api(
-  { expose: true, method: 'DELETE', path: '/users/:id' },
+  { expose: true, method: 'DELETE', path: '/streamers/:id' },
   async ({ id }: { id: number }): Promise<Response> => {
     try {
       const result = await StreamerService.delete(id)

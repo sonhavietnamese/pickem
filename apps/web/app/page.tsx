@@ -1,9 +1,10 @@
 'use client'
 
 import { useLogin, usePrivy } from '@privy-io/react-auth'
+import { redirect } from 'next/navigation'
 
 export default function Page() {
-  const { ready } = usePrivy()
+  const { ready, authenticated } = usePrivy()
   const { login } = useLogin({
     onComplete: async ({ user }) => {
       console.log('User logged in successfully', user)
@@ -19,6 +20,10 @@ export default function Page() {
 
   if (!ready) {
     return <div>Loading...</div>
+  }
+
+  if (authenticated) {
+    return redirect('/me')
   }
 
   return (
