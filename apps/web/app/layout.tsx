@@ -4,7 +4,28 @@ import localFont from 'next/font/local'
 import Providers from '@/components/providers'
 
 const sfPro = localFont({
-  src: '../assets/fonts/SFProRounded-Bold.otf',
+  src: [
+    {
+      path: '../assets/fonts/SFProRounded-Regular.otf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../assets/fonts/SFProRounded-Medium.otf',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../assets/fonts/SFProRounded-Semibold.otf',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../assets/fonts/SFProRounded-Bold.otf',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
   variable: '--font-sf-pro',
 })
 
@@ -19,9 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${sfPro.variable} antialiased`}>
-        <Providers>{children}</Providers>
-      </body>
+      <body className={`${sfPro.variable} antialiased`}>{children}</body>
     </html>
   )
 }

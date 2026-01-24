@@ -106,7 +106,7 @@ export default function Page() {
   }
 
   return (
-    <main className="flex flex-col items-center justify-center h-screen">
+    <main className="flex flex-col items-center justify-center h-screen bg-[#020204]">
       <h1>Streamer</h1>
       <button
         className="bg-blue-500 text-white px-4 py-2 rounded-md"

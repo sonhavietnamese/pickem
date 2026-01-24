@@ -8,6 +8,10 @@
   --font-sans: var(--font-sf-pro);
 }
 
+button:hover {
+  @apply cursor-pointer;
+}
+
 body {
   font-family: var(--font-sf-pro);
 }
