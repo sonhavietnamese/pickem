@@ -2,7 +2,7 @@ import { AuthorizationContext } from '@privy-io/node'
 import { PublicKey } from '@solana/web3.js'
 import { api, APIError } from 'encore.dev/api'
 import { pnp, privy } from './libs'
-import { MarketResponse } from './market.interface'
+import { MarketDetailResponse, MarketResponse } from './market.interface'
 import MarketsService from './market.service'
 import { PRIVY_AUTHORIZATION_PRIVATE_KEY } from './secrets'
 
@@ -111,6 +111,21 @@ export const createMarket = api(
       return result
     } catch (error) {
       throw APIError.aborted(error?.toString() || 'Error creating market')
+    }
+  }
+)
+
+export const getMarketDetail = api(
+  { expose: true, method: 'GET', path: '/markets/:address' },
+  async ({ address }: { address: string }): Promise<MarketDetailResponse> => {
+    try {
+      if (!address) {
+        throw APIError.invalidArgument('Market address is required')
+      }
+      const result = await MarketsService.getMarketDetail(address)
+      return result
+    } catch (error) {
+      throw APIError.aborted(error?.toString() || 'Error getting market details')
     }
   }
 )

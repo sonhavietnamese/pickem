@@ -2,12 +2,149 @@
 
 import { useMarket } from '@/hooks/use-market'
 import { useStreamer } from '@/hooks/use-streamer'
-import { use } from 'react'
+import { env } from '@/env'
+import { useQuery } from '@tanstack/react-query'
+import { use, useMemo } from 'react'
 
 interface PageProps {
   params: Promise<{
     username: string
   }>
+}
+
+// Component to fetch and display individual market details
+function MarketCard({ marketAddress }: { marketAddress: string }) {
+  const { data: marketData, isLoading, isError } = useQuery({
+    queryKey: ['market-detail', marketAddress],
+    queryFn: async () => {
+      const response = await fetch(`${env.NEXT_PUBLIC_API_URL}/markets/${marketAddress}`)
+      if (!response.ok) {
+        const error = await response.json().catch(() => ({
+          message: 'Failed to fetch market',
+        }))
+        throw new Error(error.message || 'Failed to fetch market')
+      }
+      const data = await response.json()
+      if (!data.success) {
+        throw new Error(data.message || 'Failed to fetch market')
+      }
+      return {
+        question: data.result.question,
+        resolved: data.result.resolved,
+        resolvable: data.result.resolvable,
+        endTime: BigInt(data.result.endTime),
+        winningTokenId: data.result.winningTokenId,
+        creator: data.result.creator,
+        yesTokenMint: data.result.yesTokenMint,
+        noTokenMint: data.result.noTokenMint,
+      }
+    },
+    retry: 2,
+    staleTime: 60 * 1000, // 1 minute
+  })
+
+  const isEnded = useMemo(() => {
+    if (!marketData?.endTime) return false
+    const now = new Date().getTime()
+    return now > Number(marketData.endTime) * 1000
+  }, [marketData])
+
+  const getStatusBadge = () => {
+    if (isLoading) {
+      return (
+        <span className="px-2 py-1 text-xs bg-gray-100 text-gray-600 rounded">
+          Loading...
+        </span>
+      )
+    }
+    if (isError) {
+      return (
+        <span className="px-2 py-1 text-xs bg-red-100 text-red-600 rounded">
+          Error
+        </span>
+      )
+    }
+    if (!marketData) return null
+
+    if (marketData.resolved) {
+      let winningToken = 'N/A'
+      const tokenId = marketData.winningTokenId
+      if (typeof tokenId === 'string') {
+        winningToken = tokenId.toUpperCase()
+      } else if (typeof tokenId === 'number') {
+        winningToken = String(tokenId)
+      } else if (tokenId && typeof tokenId === 'object') {
+        // Handle Record case - convert to string representation
+        winningToken = JSON.stringify(tokenId)
+      }
+      return (
+        <span className="px-2 py-1 text-xs bg-green-100 text-green-700 rounded">
+          Resolved: {winningToken}
+        </span>
+      )
+    }
+    if (!marketData.resolvable) {
+      return (
+        <span className="px-2 py-1 text-xs bg-yellow-100 text-yellow-700 rounded">
+          Not Resolvable
+        </span>
+      )
+    }
+    if (isEnded) {
+      return (
+        <span className="px-2 py-1 text-xs bg-orange-100 text-orange-700 rounded">
+          Ended (Pending Resolution)
+        </span>
+      )
+    }
+    return (
+      <span className="px-2 py-1 text-xs bg-blue-100 text-blue-700 rounded">
+        Active
+      </span>
+    )
+  }
+
+  return (
+    <div className="border border-gray-200 rounded-lg p-4 hover:border-gray-300 transition-colors">
+      <div className="flex items-start justify-between mb-3">
+        <div className="flex-1">
+          {marketData ? (
+            <>
+              <h3 className="font-semibold mb-2 text-lg">{marketData.question}</h3>
+              <div className="flex flex-wrap gap-2 mb-2">{getStatusBadge()}</div>
+              <div className="space-y-1 text-sm text-gray-600">
+                {marketData.endTime && (
+                  <p>
+                    End Time:{' '}
+                    {new Date(Number(marketData.endTime) * 1000).toLocaleString()}
+                  </p>
+                )}
+                <p className="font-mono text-xs break-all">
+                  Address: {marketAddress}
+                </p>
+              </div>
+            </>
+          ) : (
+            <>
+              <h3 className="font-semibold mb-2">Market</h3>
+              <p className="text-sm text-gray-600 font-mono break-all">
+                {marketAddress}
+              </p>
+              {getStatusBadge()}
+            </>
+          )}
+        </div>
+        <a
+          href={`https://explorer.solana.com/address/${marketAddress}?cluster=devnet`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-500 hover:text-blue-600 text-sm ml-4 whitespace-nowrap"
+        >
+          View →
+        </a>
+      </div>
+    </div>
+  )
 }
 
 export default function Page({ params }: PageProps) {
@@ -89,27 +226,7 @@ export default function Page({ params }: PageProps) {
           {markets.length > 0 && (
             <div className="grid gap-4">
               {markets.map((market) => (
-                <div
-                  key={market.market}
-                  className="border border-gray-200 rounded-lg p-4 hover:border-gray-300 transition-colors"
-                >
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <h3 className="font-semibold mb-2">Market</h3>
-                      <p className="text-sm text-gray-600 font-mono break-all">
-                        {market.market}
-                      </p>
-                    </div>
-                    <a
-                      href={`https://explorer.solana.com/address/${market.market}?cluster=devnet`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 hover:text-blue-600 text-sm ml-4"
-                    >
-                      View →
-                    </a>
-                  </div>
-                </div>
+                <MarketCard key={market.market} marketAddress={market.market} />
               ))}
             </div>
           )}

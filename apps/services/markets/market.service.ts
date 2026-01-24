@@ -4,7 +4,11 @@ import { APIError } from 'encore.dev/api'
 import StreamerService from '../streamers/streamer.service'
 import { db } from './database'
 import { COLLATERAL_MINT, connection, MASTER_KEYPAIR, pnp } from './libs'
-import { CreateMarketDto, MarketResponse } from './market.interface'
+import {
+  CreateMarketDto,
+  MarketDetailResponse,
+  MarketResponse,
+} from './market.interface'
 import { markets } from './schema'
 
 const MarketsService = {
@@ -67,6 +71,31 @@ const MarketsService = {
     return {
       success: true,
       result: marketResult,
+    }
+  },
+
+  getMarketDetail: async (marketAddress: string): Promise<MarketDetailResponse> => {
+    try {
+      const marketPubkey = new PublicKey(marketAddress)
+      const { account } = await pnp.fetchMarket(marketPubkey)
+
+      return {
+        success: true,
+        result: {
+          question: account.question,
+          resolved: account.resolved,
+          resolvable: account.resolvable,
+          endTime: account.end_time.toString(),
+          winningTokenId: account.winning_token_id ?? null,
+          creator: new PublicKey(account.creator).toBase58(),
+          yesTokenMint: new PublicKey(account.yes_token_mint).toBase58(),
+          noTokenMint: new PublicKey(account.no_token_mint).toBase58(),
+        },
+      }
+    } catch (error) {
+      throw APIError.aborted(
+        error instanceof Error ? error.message : 'Error fetching market details'
+      )
     }
   },
 }
