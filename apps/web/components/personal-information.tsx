@@ -118,7 +118,7 @@ export default function PersonalInformation() {
   return (
     <section
       id="information"
-      className="w-[320px] h-full bg-[#1B1C20]/70 rounded-2xl p-5"
+      className="w-[340px] h-full bg-[#1B1C20]/70 rounded-2xl p-5"
     >
       <div className="w-full text-white grid grid-cols-[64px_1fr] gap-4 leading-none items-center">
         <div className="w-[64px] aspect-square rounded-xl bg-white"></div>
