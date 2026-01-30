@@ -1,0 +1,869 @@
+{
+  "session": {
+    "streamer": "zeus",
+    "start_time": "2026-01-30T19:28:02.860717",
+    "frames": [
+      {
+        "frame_number": 1,
+        "timestamp": "2026-01-30T19:28:05.296974",
+        "frame_filename": "zeus/debug/frame_20260130_192806.jpg",
+        "analysis": {
+          "map": "Anubis",
+          "weapon": [
+            {
+              "name": "AWP",
+              "type": "Sniper Rifle",
+              "skin": "Safari Mesh",
+              "ammo": 2,
+              "is_active": true
+            },
+            {
+              "name": "Glock-18",
+              "type": "Pistol",
+              "skin": "Default",
+              "ammo": 20,
+              "is_active": false
+            },
+            {
+              "name": "Knife",
+              "type": "Melee",
+              "skin": "Default",
+              "ammo": 0,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 0,
+            "score": {
+              "team1": 4,
+              "team2": 4
+            },
+            "players": {
+              "team1": 4,
+              "team2": 2
+            }
+          },
+          "player": {
+            "health": 100,
+            "money": 2850
+          },
+          "teams": [
+            {
+              "name": "Terrorists",
+              "score": 4,
+              "players": [
+                {
+                  "name": "Zeus",
+                  "health": 100,
+                  "money": 2850
+                },
+                {
+                  "name": "Unforge",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "Saivert",
+                  "health": 100,
+                  "money": 0
+                }
+              ]
+            },
+            {
+              "name": "Counter-Terrorists",
+              "score": 4,
+              "players": [
+                {
+                  "name": "v42f",
+                  "health": 0,
+                  "money": 0
+                }
+              ]
+            }
+          ],
+          "kills": [
+            {
+              "killer": "Saivert",
+              "victim": "v42f",
+              "weapon": "FAMAS"
+            }
+          ]
+        },
+        "processing_time_seconds": 19.7151
+      },
+      {
+        "frame_number": 2,
+        "timestamp": "2026-01-30T19:28:36.232750",
+        "frame_filename": "zeus/debug/frame_20260130_192837.jpg",
+        "analysis": {
+          "map": "de_mirage",
+          "weapon": [
+            {
+              "name": "Bayonet",
+              "type": "Knife",
+              "skin": "Slaughter",
+              "ammo": 0,
+              "is_active": true
+            },
+            {
+              "name": "AK-47",
+              "type": "Rifle",
+              "skin": "Unknown",
+              "ammo": 0,
+              "is_active": false
+            },
+            {
+              "name": "Glock-18",
+              "type": "Pistol",
+              "skin": "Unknown",
+              "ammo": 0,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 11,
+            "score": {
+              "team1": 4,
+              "team2": 5
+            },
+            "players": {
+              "team1": 5,
+              "team2": 5
+            }
+          },
+          "player": {
+            "health": 100,
+            "money": 2200
+          },
+          "teams": [
+            {
+              "name": "Terrorists",
+              "score": 4,
+              "players": [
+                {
+                  "name": "kntr",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "v42f",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "FAK4",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "-Bombilo-",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "O5C4R",
+                  "health": 100,
+                  "money": 0
+                }
+              ]
+            },
+            {
+              "name": "Counter-Terrorists",
+              "score": 5,
+              "players": [
+                {
+                  "name": "Saivert",
+                  "health": 100,
+                  "money": 950
+                },
+                {
+                  "name": "CyberFocus",
+                  "health": 100,
+                  "money": 5600
+                },
+                {
+                  "name": "PIPIPOPAPL",
+                  "health": 100,
+                  "money": 2200
+                },
+                {
+                  "name": "Unfome",
+                  "health": 100,
+                  "money": 4600
+                },
+                {
+                  "name": "Impab",
+                  "health": 100,
+                  "money": 2100
+                }
+              ]
+            }
+          ],
+          "kills": []
+        },
+        "processing_time_seconds": 14.874
+      },
+      {
+        "frame_number": 1,
+        "timestamp": "2026-01-30T19:40:25.768867",
+        "frame_filename": "zeus/debug/frame_20260130_194027.jpg",
+        "analysis": {
+          "map": "Anubis",
+          "weapon": [
+            {
+              "name": "P250",
+              "type": "Pistol",
+              "skin": "Valence",
+              "ammo": 13,
+              "is_active": true
+            }
+          ],
+          "state": {
+            "timer": 72,
+            "score": {
+              "team1": 8,
+              "team2": 8
+            },
+            "players": {
+              "team1": 1,
+              "team2": 2
+            }
+          },
+          "player": {
+            "health": 100,
+            "money": 1500
+          },
+          "teams": [
+            {
+              "name": "Counter-Terrorists",
+              "score": 8,
+              "players": [
+                {
+                  "name": "CyberFocus",
+                  "health": 100,
+                  "money": 1500
+                },
+                {
+                  "name": "Saivert",
+                  "health": 0,
+                  "money": 2950
+                },
+                {
+                  "name": "PIPIPOPAPI...",
+                  "health": 0,
+                  "money": 2600
+                },
+                {
+                  "name": "Unforqe",
+                  "health": 0,
+                  "money": 3300
+                },
+                {
+                  "name": "Impala",
+                  "health": 0,
+                  "money": 2000
+                }
+              ]
+            },
+            {
+              "name": "Terrorists",
+              "score": 8,
+              "players": [
+                {
+                  "name": "kntr",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "v42f",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "FAK4",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "-Bombil0-",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "O5C4R",
+                  "health": 0,
+                  "money": 0
+                }
+              ]
+            }
+          ],
+          "kills": []
+        },
+        "processing_time_seconds": 12.217
+      },
+      {
+        "frame_number": 2,
+        "timestamp": "2026-01-30T19:40:50.086405",
+        "frame_filename": "zeus/debug/frame_20260130_194051.jpg",
+        "analysis": {
+          "map": "unknown",
+          "weapon": [
+            {
+              "name": "FAMAS",
+              "type": "Rifle",
+              "skin": "Meow 36",
+              "ammo": 0,
+              "is_active": true
+            }
+          ],
+          "state": {
+            "timer": 17,
+            "score": {
+              "team1": 8,
+              "team2": 9
+            },
+            "players": {
+              "team1": 5,
+              "team2": 5
+            }
+          },
+          "player": {
+            "health": 100,
+            "money": 4150
+          },
+          "teams": [
+            {
+              "name": "Counter-Terrorists",
+              "score": 8,
+              "players": [
+                {
+                  "name": "Salvert",
+                  "health": 100,
+                  "money": 5500
+                },
+                {
+                  "name": "CyberFocus",
+                  "health": 100,
+                  "money": 4050
+                },
+                {
+                  "name": "PIPIPOPAPL",
+                  "health": 100,
+                  "money": 4150
+                },
+                {
+                  "name": "Unforme",
+                  "health": 100,
+                  "money": 250
+                },
+                {
+                  "name": "Impala",
+                  "health": 100,
+                  "money": 4550
+                }
+              ]
+            },
+            {
+              "name": "Terrorists",
+              "score": 9,
+              "players": [
+                {
+                  "name": "kntr",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "v42i",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "FAK4",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "-Bombil0-",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "05C4R",
+                  "health": 100,
+                  "money": 0
+                }
+              ]
+            }
+          ],
+          "kills": []
+        },
+        "processing_time_seconds": 16.1137
+      },
+      {
+        "frame_number": 3,
+        "timestamp": "2026-01-30T19:41:17.942997",
+        "frame_filename": "zeus/debug/frame_20260130_194119.jpg",
+        "analysis": {
+          "map": "Anubis",
+          "weapon": [
+            {
+              "name": "Incendiary Grenade",
+              "type": "Grenade",
+              "skin": "Default",
+              "ammo": 1,
+              "is_active": true
+            },
+            {
+              "name": "M4A1-S",
+              "type": "Rifle",
+              "skin": "Default",
+              "ammo": 20,
+              "is_active": false
+            },
+            {
+              "name": "USP-S",
+              "type": "Pistol",
+              "skin": "Default",
+              "ammo": 12,
+              "is_active": false
+            },
+            {
+              "name": "Sport Gloves",
+              "type": "Gloves",
+              "skin": "Pandora's Box",
+              "ammo": 0,
+              "is_active": true
+            }
+          ],
+          "state": {
+            "timer": 104,
+            "score": {
+              "team1": 8,
+              "team2": 9
+            },
+            "players": {
+              "team1": 5,
+              "team2": 4
+            }
+          },
+          "player": {
+            "health": 100,
+            "money": 150
+          },
+          "teams": [
+            {
+              "name": "Terrorists",
+              "score": 8,
+              "players": [
+                {
+                  "name": "ZEUS",
+                  "health": 100,
+                  "money": 150
+                },
+                {
+                  "name": "CyberFocus",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "Salvart",
+                  "health": 100,
+                  "money": 0
+                }
+              ]
+            },
+            {
+              "name": "Counter-Terrorists",
+              "score": 9,
+              "players": []
+            }
+          ],
+          "kills": [
+            {
+              "killer": "1mpala + CyberFocus",
+              "victim": "FAK4",
+              "weapon": "M4A4"
+            }
+          ]
+        },
+        "processing_time_seconds": 14.0406
+      },
+      {
+        "frame_number": 4,
+        "timestamp": "2026-01-30T19:41:43.738198",
+        "frame_filename": "zeus/debug/frame_20260130_194145.jpg",
+        "analysis": {
+          "map": "Anubis",
+          "weapon": [
+            {
+              "name": "M4A1-S",
+              "type": "Rifle",
+              "skin": "Chantico's Fire",
+              "ammo": 20,
+              "is_active": true
+            },
+            {
+              "name": "Flashbang",
+              "type": "Grenade",
+              "skin": "Default",
+              "ammo": 1,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 78,
+            "score": {
+              "team1": 8,
+              "team2": 9
+            },
+            "players": {
+              "team1": 5,
+              "team2": 4
+            }
+          },
+          "player": {
+            "health": 100,
+            "money": 150
+          },
+          "teams": [
+            {
+              "name": "Terrorists",
+              "score": 8,
+              "players": []
+            },
+            {
+              "name": "Counter-Terrorists",
+              "score": 9,
+              "players": [
+                {
+                  "name": "ZEUS",
+                  "health": 100,
+                  "money": 150
+                }
+              ]
+            }
+          ],
+          "kills": [
+            {
+              "killer": "m0NESY",
+              "victim": "CyberFocus",
+              "weapon": "M4A1-S"
+            }
+          ]
+        },
+        "processing_time_seconds": 16.1183
+      },
+      {
+        "frame_number": 1,
+        "timestamp": "2026-01-30T19:51:31.625650",
+        "frame_filename": "zeus/debug/frame_20260130_195133.jpg",
+        "analysis": {
+          "map": "de_anubis",
+          "weapon": [
+            {
+              "name": "High Explosive Grenade",
+              "type": "Grenade",
+              "skin": "Default",
+              "ammo": 1,
+              "is_active": true
+            },
+            {
+              "name": "Knife",
+              "type": "Melee",
+              "skin": "Default",
+              "ammo": 0,
+              "is_active": false
+            },
+            {
+              "name": "Zeus x27",
+              "type": "Equipment",
+              "skin": "Default",
+              "ammo": 1,
+              "is_active": false
+            },
+            {
+              "name": "Flashbang",
+              "type": "Grenade",
+              "skin": "Default",
+              "ammo": 1,
+              "is_active": false
+            },
+            {
+              "name": "Smoke Grenade",
+              "type": "Grenade",
+              "skin": "Default",
+              "ammo": 1,
+              "is_active": false
+            },
+            {
+              "name": "Molotov",
+              "type": "Grenade",
+              "skin": "Default",
+              "ammo": 1,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 3553,
+            "score": {
+              "team1": 0,
+              "team2": 0
+            },
+            "players": {
+              "team1": 0,
+              "team2": 4
+            }
+          },
+          "player": {
+            "health": 100,
+            "money": 99999
+          },
+          "teams": [
+            {
+              "name": "Counter-Terrorists",
+              "score": 0,
+              "players": []
+            },
+            {
+              "name": "Terrorists",
+              "score": 0,
+              "players": [
+                {
+                  "name": "ZEUS",
+                  "health": 100,
+                  "money": 99999
+                },
+                {
+                  "name": "CyberFocus",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "1mpala",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "lol -_-",
+                  "health": 100,
+                  "money": 0
+                }
+              ]
+            }
+          ],
+          "kills": []
+        },
+        "processing_time_seconds": 22.7799
+      },
+      {
+        "frame_number": 2,
+        "timestamp": "2026-01-30T19:52:05.968722",
+        "frame_filename": "zeus/debug/frame_20260130_195207.jpg",
+        "analysis": {
+          "map": "Anubis",
+          "weapon": [
+            {
+              "name": "Nomad Knife",
+              "type": "Knife",
+              "skin": "Fade",
+              "ammo": 0,
+              "is_active": true
+            },
+            {
+              "name": "AK-47",
+              "type": "Rifle",
+              "skin": "Unknown",
+              "ammo": 30,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 3519,
+            "score": {
+              "team1": 0,
+              "team2": 0
+            },
+            "players": {
+              "team1": 1,
+              "team2": 1
+            }
+          },
+          "player": {
+            "health": 100,
+            "money": 99999
+          },
+          "teams": [
+            {
+              "name": "Counter-Terrorists",
+              "score": 0,
+              "players": [
+                {
+                  "name": "1mpala",
+                  "health": 100,
+                  "money": 99999
+                }
+              ]
+            },
+            {
+              "name": "Terrorists",
+              "score": 0,
+              "players": [
+                {
+                  "name": "heyshiro",
+                  "health": 100,
+                  "money": 99999
+                }
+              ]
+            }
+          ],
+          "kills": []
+        },
+        "processing_time_seconds": 12.9086
+      },
+      {
+        "frame_number": 3,
+        "timestamp": "2026-01-30T19:52:30.110344",
+        "frame_filename": "zeus/debug/frame_20260130_195231.jpg",
+        "analysis": {
+          "map": "Anubis",
+          "weapon": [
+            {
+              "name": "M4A1-S",
+              "type": "Rifle",
+              "skin": "Unknown",
+              "ammo": 20,
+              "is_active": false
+            },
+            {
+              "name": "USP-S",
+              "type": "Pistol",
+              "skin": "Unknown",
+              "ammo": 12,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 3495,
+            "score": {
+              "team1": 0,
+              "team2": 0
+            },
+            "players": {
+              "team1": 1,
+              "team2": 1
+            }
+          },
+          "player": {
+            "health": 100,
+            "money": 99999
+          },
+          "teams": [
+            {
+              "name": "Counter-Terrorists",
+              "score": 0,
+              "players": [
+                {
+                  "name": "Impala",
+                  "health": 100,
+                  "money": 99999
+                }
+              ]
+            },
+            {
+              "name": "Terrorists",
+              "score": 0,
+              "players": [
+                {
+                  "name": "heyshiro",
+                  "health": 100,
+                  "money": 99999
+                }
+              ]
+            }
+          ],
+          "kills": []
+        },
+        "processing_time_seconds": 15.2514
+      },
+      {
+        "frame_number": 4,
+        "timestamp": "2026-01-30T19:52:56.928512",
+        "frame_filename": "zeus/debug/frame_20260130_195258.jpg",
+        "analysis": {
+          "map": "Anubis",
+          "weapon": [
+            {
+              "name": "Karambit",
+              "type": "Knife",
+              "skin": "Bright Water",
+              "ammo": 0,
+              "is_active": true
+            },
+            {
+              "name": "AK-47",
+              "type": "Rifle",
+              "skin": "Default",
+              "ammo": 30,
+              "is_active": false
+            },
+            {
+              "name": "USP-S",
+              "type": "Pistol",
+              "skin": "Default",
+              "ammo": 12,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 3469,
+            "score": {
+              "team1": 0,
+              "team2": 0
+            },
+            "players": {
+              "team1": 2,
+              "team2": 1
+            }
+          },
+          "player": {
+            "health": 100,
+            "money": 99999
+          },
+          "teams": [
+            {
+              "name": "Terrorists",
+              "score": 0,
+              "players": [
+                {
+                  "name": "CyberFocus",
+                  "health": 100,
+                  "money": 99999
+                },
+                {
+                  "name": "Impala",
+                  "health": 100,
+                  "money": 99999
+                }
+              ]
+            },
+            {
+              "name": "Counter-Terrorists",
+              "score": 0,
+              "players": [
+                {
+                  "name": "heyshire",
+                  "health": 100,
+                  "money": 99999
+                }
+              ]
+            }
+          ],
+          "kills": []
+        },
+        "processing_time_seconds": 14.341
+      }
+    ],
+    "last_update": "2026-01-30T19:52:56.928512",
+    "total_frames": 4
+  }
+}
