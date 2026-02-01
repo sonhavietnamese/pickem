@@ -4,20 +4,16 @@ import { APIError } from 'encore.dev/api'
 import StreamerService from '../streamers/streamer.service'
 import { db } from './database'
 import { COLLATERAL_MINT, connection, MASTER_KEYPAIR, pnp } from './libs'
-import {
-  CreateMarketDto,
-  MarketDetailResponse,
-  MarketResponse,
-} from './market.interface'
+import { CreateMarketDto, MarketDetailResponse, MarketResponse } from './market.interface'
 import { markets } from './schema'
 
 const MarketsService = {
   create: async (data: CreateMarketDto): Promise<MarketResponse> => {
     // check user is streamer aka streamer exists
-    const streamer = await StreamerService.findByUsername(data.username)
-    if (!streamer.success) {
-      throw APIError.aborted(streamer.message || 'Streamer not found')
-    }
+    // const streamer = await StreamerService.findByUsername(data.username)
+    // if (!streamer.success) {
+    //   throw APIError.aborted(streamer.message || 'Streamer not found')
+    // }
 
     const initialLiquidity = BigInt(data.initialLiquidity)
     const endTime = BigInt(Math.floor(Date.now() / 1000) + data.endTime) // 1 minute
@@ -93,9 +89,7 @@ const MarketsService = {
         },
       }
     } catch (error) {
-      throw APIError.aborted(
-        error instanceof Error ? error.message : 'Error fetching market details'
-      )
+      throw APIError.aborted(error instanceof Error ? error.message : 'Error fetching market details')
     }
   },
 }

@@ -27,7 +27,7 @@ The game state data includes:
 - Team compositions
 
 ### MARKET REQUIREMENTS:
-- Duration: Must be short-term (3, 5, or 10 minutes).
+- Duration: Must be short-term (5 minutes).
 - Binary: Only two mutually exclusive outcomes (Yes/No or Team A/Team B).
 - Quantifiable: Must be based on objective HUD data (Kills, Score, Plant/Defuse, or Money).
 - Verifiable: A user watching the stream must be able to confirm the result via the scoreboard.
