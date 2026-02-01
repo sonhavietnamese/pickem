@@ -163,9 +163,9 @@ async function placePosition() {
 
 // createMarket().catch(console.error)
 
-// fetchMarket().catch(console.error)
+fetchMarket().catch(console.error)
 // placePosition().then(console.log).catch(console.error)
 
 // getMarketInfo(MARKET_CONFIGS.address).then(console.log).catch(console.error)
 
-settleMarket().catch(console.error)
+// settleMarket().catch(console.error)

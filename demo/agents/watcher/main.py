@@ -13,7 +13,7 @@ import cv2
 import ollama
 import streamlink
 
-INTERVAL_SECONDS = 5
+INTERVAL_SECONDS = 10
 
 # Ollama model name
 MODEL_NAME = 'gemini-3-flash-preview'

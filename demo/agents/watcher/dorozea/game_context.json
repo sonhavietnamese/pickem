@@ -1,0 +1,2644 @@
+{
+  "session": {
+    "streamer": "dorozea",
+    "start_time": "2026-02-01T23:39:18.613682",
+    "frames": [
+      {
+        "frame_number": 1,
+        "timestamp": "2026-02-01T23:39:20.710232",
+        "frame_filename": "dorozea/debug/frame_20260201_233921.jpg",
+        "analysis": {
+          "map": "de_nuke",
+          "weapon": [
+            {
+              "name": "XM1014",
+              "type": "Shotgun",
+              "skin": "Canvas Cloud",
+              "ammo": 7,
+              "is_active": true
+            },
+            {
+              "name": "USP-S",
+              "type": "Pistol",
+              "skin": "Default",
+              "ammo": 12,
+              "is_active": false
+            },
+            {
+              "name": "Huntsman Knife",
+              "type": "Knife",
+              "skin": "Default",
+              "ammo": 0,
+              "is_active": false
+            },
+            {
+              "name": "Smoke Grenade",
+              "type": "Grenade",
+              "skin": "Default",
+              "ammo": 1,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 70,
+            "score": {
+              "team1": 2,
+              "team2": 1
+            },
+            "players": {
+              "team1": 3,
+              "team2": 1
+            }
+          },
+          "player": {
+            "health": 18,
+            "money": 1650
+          },
+          "teams": [
+            {
+              "name": "Counter-Terrorists",
+              "score": 2,
+              "players": [
+                {
+                  "name": "Streamer",
+                  "health": 18,
+                  "money": 1650
+                }
+              ]
+            },
+            {
+              "name": "Terrorists",
+              "score": 1,
+              "players": []
+            }
+          ],
+          "kills": [
+            {
+              "killer": "Streamer",
+              "victim": "Unknown",
+              "weapon": "XM1014"
+            }
+          ]
+        },
+        "processing_time_seconds": 15.0562
+      },
+      {
+        "frame_number": 2,
+        "timestamp": "2026-02-01T23:39:46.861029",
+        "frame_filename": "dorozea/debug/frame_20260201_233947.jpg",
+        "analysis": {
+          "map": "Overpass",
+          "weapon": [
+            {
+              "name": "USP-S",
+              "type": "Pistol",
+              "skin": "Default",
+              "ammo": 12,
+              "is_active": true
+            },
+            {
+              "name": "Knife",
+              "type": "Melee",
+              "skin": "Default",
+              "ammo": 0,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 18,
+            "score": {
+              "team1": 3,
+              "team2": 1
+            },
+            "players": {
+              "team1": 5,
+              "team2": 5
+            }
+          },
+          "player": {
+            "health": 100,
+            "money": 5750
+          },
+          "teams": [
+            {
+              "name": "Counter-Terrorists",
+              "score": 3,
+              "players": [
+                {
+                  "name": "Mocha Frap..",
+                  "health": 100,
+                  "money": 5750
+                },
+                {
+                  "name": "Klim",
+                  "health": 100,
+                  "money": 3850
+                },
+                {
+                  "name": "GiGi",
+                  "health": 100,
+                  "money": 3850
+                },
+                {
+                  "name": "Seven10",
+                  "health": 100,
+                  "money": 3850
+                },
+                {
+                  "name": "Mr. Jefferson",
+                  "health": 100,
+                  "money": 4100
+                }
+              ]
+            },
+            {
+              "name": "Terrorists",
+              "score": 1,
+              "players": [
+                {
+                  "name": "DCR",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "MAD O",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "CDXuuuuu~",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "Jurij Owsie..",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "PEYTA",
+                  "health": 100,
+                  "money": 0
+                }
+              ]
+            }
+          ],
+          "kills": []
+        },
+        "processing_time_seconds": 19.8981
+      },
+      {
+        "frame_number": 3,
+        "timestamp": "2026-02-01T23:40:17.648080",
+        "frame_filename": "dorozea/debug/frame_20260201_234018.jpg",
+        "analysis": {
+          "map": "Overpass",
+          "weapon": [
+            {
+              "name": "XM1014",
+              "type": "Shotgun",
+              "skin": "Canvas Cloud",
+              "ammo": 7,
+              "is_active": true
+            },
+            {
+              "name": "P2000",
+              "type": "Pistol",
+              "skin": "Default",
+              "ammo": 13,
+              "is_active": false
+            },
+            {
+              "name": "Knife",
+              "type": "Melee",
+              "skin": "Default",
+              "ammo": 0,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 103,
+            "score": {
+              "team1": 3,
+              "team2": 1
+            },
+            "players": {
+              "team1": 5,
+              "team2": 5
+            }
+          },
+          "player": {
+            "health": 100,
+            "money": 2950
+          },
+          "teams": [
+            {
+              "name": "Terrorists",
+              "score": 3,
+              "players": []
+            },
+            {
+              "name": "Counter-Terrorists",
+              "score": 1,
+              "players": [
+                {
+                  "name": "Mocha Frappuccino",
+                  "health": 100,
+                  "money": 2950
+                }
+              ]
+            }
+          ],
+          "kills": []
+        },
+        "processing_time_seconds": 11.8341
+      },
+      {
+        "frame_number": 4,
+        "timestamp": "2026-02-01T23:40:40.768278",
+        "frame_filename": "dorozea/debug/frame_20260201_234041.jpg",
+        "analysis": {
+          "map": "Overpass",
+          "weapon": [
+            {
+              "name": "FAMAS",
+              "type": "Rifle",
+              "skin": "Default",
+              "ammo": 25,
+              "is_active": true
+            },
+            {
+              "name": "P2000",
+              "type": "Pistol",
+              "skin": "Default",
+              "ammo": 13,
+              "is_active": false
+            },
+            {
+              "name": "Knife",
+              "type": "Melee",
+              "skin": "Default",
+              "ammo": 0,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 81,
+            "score": {
+              "team1": 3,
+              "team2": 1
+            },
+            "players": {
+              "team1": 4,
+              "team2": 5
+            }
+          },
+          "player": {
+            "health": 100,
+            "money": 0
+          },
+          "teams": [
+            {
+              "name": "Counter-Terrorists",
+              "score": 3,
+              "players": [
+                {
+                  "name": "Mocha Frappuccino",
+                  "health": 0,
+                  "money": 2950
+                },
+                {
+                  "name": "Klim",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "GIGI",
+                  "health": 23,
+                  "money": 2350
+                },
+                {
+                  "name": "Seven10",
+                  "health": 100,
+                  "money": 2950
+                },
+                {
+                  "name": "Mr. Jefferson",
+                  "health": 100,
+                  "money": 4100
+                }
+              ]
+            },
+            {
+              "name": "Terrorists",
+              "score": 1,
+              "players": [
+                {
+                  "name": "OCB",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "_MAO_0",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "CDXuuuuuu",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "Jordi Owsle...",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "PEYTA",
+                  "health": 100,
+                  "money": 0
+                }
+              ]
+            }
+          ],
+          "kills": [
+            {
+              "killer": "_MAO_0",
+              "victim": "Mocha Frappuccino",
+              "weapon": "AK-47"
+            }
+          ]
+        },
+        "processing_time_seconds": 14.7728
+      },
+      {
+        "frame_number": 1,
+        "timestamp": "2026-02-01T23:45:40.989805",
+        "frame_filename": "dorozea/debug/frame_20260201_234542.jpg",
+        "analysis": {
+          "map": "Overpass",
+          "weapon": [
+            {
+              "name": "AK-47",
+              "type": "Rifle",
+              "skin": "Safari Mesh",
+              "ammo": 30,
+              "is_active": true
+            },
+            {
+              "name": "USP-S",
+              "type": "Pistol",
+              "skin": "Default",
+              "ammo": 12,
+              "is_active": false
+            },
+            {
+              "name": "Knife",
+              "type": "Melee",
+              "skin": "Default",
+              "ammo": 0,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 66,
+            "score": {
+              "team1": 6,
+              "team2": 1
+            },
+            "players": {
+              "team1": 3,
+              "team2": 4
+            }
+          },
+          "player": {
+            "health": 100,
+            "money": 10850
+          },
+          "teams": [
+            {
+              "name": "Terrorists",
+              "score": 6,
+              "players": [
+                {
+                  "name": "Mocha Frap..",
+                  "health": 0,
+                  "money": 1450
+                },
+                {
+                  "name": "Klim",
+                  "health": 0,
+                  "money": 2800
+                },
+                {
+                  "name": "GIGI",
+                  "health": 100,
+                  "money": 10550
+                },
+                {
+                  "name": "Seven10",
+                  "health": 100,
+                  "money": 10850
+                },
+                {
+                  "name": "Mr. Jefferson",
+                  "health": 74,
+                  "money": 7900
+                }
+              ]
+            },
+            {
+              "name": "Counter-Terrorists",
+              "score": 1,
+              "players": [
+                {
+                  "name": "OCA",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "MAD 0",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "CDXuuuuu",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "Jurij Owsie..",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "PEYTA",
+                  "health": 100,
+                  "money": 0
+                }
+              ]
+            }
+          ],
+          "kills": []
+        },
+        "processing_time_seconds": 13.7396
+      },
+      {
+        "frame_number": 2,
+        "timestamp": "2026-02-01T23:46:05.988847",
+        "frame_filename": "dorozea/debug/frame_20260201_234607.jpg",
+        "analysis": {
+          "map": "de_mirage",
+          "weapon": [
+            {
+              "name": "AK-47",
+              "type": "Rifle",
+              "skin": "Neon Revolution",
+              "ammo": 26,
+              "is_active": true
+            },
+            {
+              "name": "USP-S",
+              "type": "Pistol",
+              "skin": "Default",
+              "ammo": 12,
+              "is_active": false
+            },
+            {
+              "name": "Knife",
+              "type": "Melee",
+              "skin": "Default",
+              "ammo": 0,
+              "is_active": false
+            },
+            {
+              "name": "Flashbang",
+              "type": "Grenade",
+              "skin": "Default",
+              "ammo": 1,
+              "is_active": false
+            },
+            {
+              "name": "Smoke Grenade",
+              "type": "Grenade",
+              "skin": "Default",
+              "ammo": 1,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 40,
+            "score": {
+              "team1": 6,
+              "team2": 1
+            },
+            "players": {
+              "team1": 2,
+              "team2": 2
+            }
+          },
+          "player": {
+            "health": 74,
+            "money": 7900
+          },
+          "teams": [
+            {
+              "name": "Counter-Terrorists",
+              "score": 6,
+              "players": [
+                {
+                  "name": "Mocha Frap.",
+                  "health": 0,
+                  "money": 1450
+                },
+                {
+                  "name": "Klim",
+                  "health": 0,
+                  "money": 2600
+                },
+                {
+                  "name": "GIGI",
+                  "health": 100,
+                  "money": 10550
+                },
+                {
+                  "name": "Seven10",
+                  "health": 0,
+                  "money": 10850
+                },
+                {
+                  "name": "Mr. Jefferson",
+                  "health": 74,
+                  "money": 7900
+                }
+              ]
+            },
+            {
+              "name": "Terrorists",
+              "score": 1,
+              "players": [
+                {
+                  "name": "OCB",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "MAO_0",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "CDXuuuuuu-",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "Jurij Owsie..",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "PEYTA",
+                  "health": 0,
+                  "money": 0
+                }
+              ]
+            }
+          ],
+          "kills": [
+            {
+              "killer": "CDXuuuuuu<^>",
+              "victim": "GIGI",
+              "weapon": "AK-47"
+            }
+          ]
+        },
+        "processing_time_seconds": 26.4876
+      },
+      {
+        "frame_number": 3,
+        "timestamp": "2026-02-01T23:46:43.531629",
+        "frame_filename": "dorozea/debug/frame_20260201_234644.jpg",
+        "analysis": {
+          "map": "Overpass",
+          "weapon": [
+            {
+              "name": "AK-47",
+              "type": "Rifle",
+              "skin": "Neon Revolution",
+              "ammo": 26,
+              "is_active": true
+            },
+            {
+              "name": "Smoke Grenade",
+              "type": "Grenade",
+              "skin": "Default",
+              "ammo": 1,
+              "is_active": false
+            },
+            {
+              "name": "USP-S",
+              "type": "Pistol",
+              "skin": "Default",
+              "ammo": 12,
+              "is_active": false
+            },
+            {
+              "name": "Knife",
+              "type": "Melee",
+              "skin": "Default",
+              "ammo": 0,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 0.343,
+            "score": {
+              "team1": 6,
+              "team2": 1
+            },
+            "players": {
+              "team1": 1,
+              "team2": 1
+            }
+          },
+          "player": {
+            "health": 21,
+            "money": 7900
+          },
+          "teams": [
+            {
+              "name": "Terrorists",
+              "score": 6,
+              "players": [
+                {
+                  "name": "Mocha Frap.",
+                  "health": 0,
+                  "money": 1450
+                },
+                {
+                  "name": "Klim",
+                  "health": 0,
+                  "money": 2600
+                },
+                {
+                  "name": "GIGI",
+                  "health": 0,
+                  "money": 10550
+                },
+                {
+                  "name": "Seven10",
+                  "health": 0,
+                  "money": 10850
+                }
+              ]
+            },
+            {
+              "name": "Counter-Terrorists",
+              "score": 1,
+              "players": [
+                {
+                  "name": "Mr. Jefferson",
+                  "health": 21,
+                  "money": 7900
+                },
+                {
+                  "name": "OCB_W\u00d7G.X.C\u00d7W",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "MAO O",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "CDXuuuuu...",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "Jurij Owsw...",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "PLYTA",
+                  "health": 0,
+                  "money": 0
+                }
+              ]
+            }
+          ],
+          "kills": []
+        },
+        "processing_time_seconds": 29.2021
+      },
+      {
+        "frame_number": 4,
+        "timestamp": "2026-02-01T23:47:23.762580",
+        "frame_filename": "dorozea/debug/frame_20260201_234724.jpg",
+        "analysis": {
+          "map": "Overpass",
+          "weapon": [
+            {
+              "name": "XM1014",
+              "type": "Shotgun",
+              "skin": "Canvas Cloud",
+              "ammo": 7,
+              "is_active": true
+            },
+            {
+              "name": "P2000",
+              "type": "Pistol",
+              "skin": "Default",
+              "ammo": 13,
+              "is_active": false
+            },
+            {
+              "name": "Knife",
+              "type": "Melee",
+              "skin": "Default",
+              "ammo": 0,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 103,
+            "score": {
+              "team1": 7,
+              "team2": 1
+            },
+            "players": {
+              "team1": 5,
+              "team2": 5
+            }
+          },
+          "player": {
+            "health": 100,
+            "money": 1850
+          },
+          "teams": [
+            {
+              "name": "Terrorists",
+              "score": 7,
+              "players": []
+            },
+            {
+              "name": "Counter-Terrorists",
+              "score": 1,
+              "players": [
+                {
+                  "name": "Seven10",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "Mr. Jefferson",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "Mocha Frappuccino",
+                  "health": 100,
+                  "money": 1850
+                },
+                {
+                  "name": "GIGI",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "Klim",
+                  "health": 100,
+                  "money": 0
+                }
+              ]
+            }
+          ],
+          "kills": []
+        },
+        "processing_time_seconds": 16.5385
+      },
+      {
+        "frame_number": 5,
+        "timestamp": "2026-02-01T23:47:51.354022",
+        "frame_filename": "dorozea/debug/frame_20260201_234752.jpg",
+        "analysis": {
+          "map": "Overpass",
+          "weapon": [
+            {
+              "name": "AK-47",
+              "type": "Rifle",
+              "skin": "Bloodsport",
+              "ammo": 30,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 75,
+            "score": {
+              "team1": 7,
+              "team2": 1
+            },
+            "players": {
+              "team1": 4,
+              "team2": 2
+            }
+          },
+          "player": {
+            "health": 0,
+            "money": 2450
+          },
+          "teams": [
+            {
+              "name": "Counter-Terrorists",
+              "score": 7,
+              "players": [
+                {
+                  "name": "Mocha Frappuccino",
+                  "health": 0,
+                  "money": 2450
+                },
+                {
+                  "name": "Klim",
+                  "health": 100,
+                  "money": 250
+                },
+                {
+                  "name": "GIGI",
+                  "health": 100,
+                  "money": 6400
+                },
+                {
+                  "name": "Seven10",
+                  "health": 100,
+                  "money": 9350
+                },
+                {
+                  "name": "Mr. Jefferson",
+                  "health": 38,
+                  "money": 7000
+                }
+              ]
+            },
+            {
+              "name": "Terrorists",
+              "score": 1,
+              "players": [
+                {
+                  "name": "OCB",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "MAO_O",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "CDXuuuuuu",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "Jurij Owsienko",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "P\u0141YTA",
+                  "health": 0,
+                  "money": 0
+                }
+              ]
+            }
+          ],
+          "kills": [
+            {
+              "killer": "Jurij Owsienko",
+              "victim": "Mocha Frappuccino",
+              "weapon": "AK-47"
+            }
+          ]
+        },
+        "processing_time_seconds": 19.0547
+      },
+      {
+        "frame_number": 6,
+        "timestamp": "2026-02-01T23:48:21.437100",
+        "frame_filename": "dorozea/debug/frame_20260201_234822.jpg",
+        "analysis": {
+          "map": "Overpass",
+          "weapon": [
+            {
+              "name": "AWP",
+              "type": "Sniper Rifle",
+              "skin": "Pit Viper",
+              "ammo": 5,
+              "is_active": true
+            },
+            {
+              "name": "USP-S",
+              "type": "Pistol",
+              "skin": "Default",
+              "ammo": 12,
+              "is_active": false
+            },
+            {
+              "name": "Gut Knife",
+              "type": "Knife",
+              "skin": "Unknown",
+              "ammo": 0,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 46,
+            "score": {
+              "team1": 7,
+              "team2": 1
+            },
+            "players": {
+              "team1": 3,
+              "team2": 1
+            }
+          },
+          "player": {
+            "health": 47,
+            "money": 350
+          },
+          "teams": [
+            {
+              "name": "Counter-Terrorists",
+              "score": 7,
+              "players": [
+                {
+                  "name": "Mocha Frap..",
+                  "health": 0,
+                  "money": 2450
+                },
+                {
+                  "name": "Klim",
+                  "health": 47,
+                  "money": 350
+                },
+                {
+                  "name": "GIGI",
+                  "health": 0,
+                  "money": 6400
+                },
+                {
+                  "name": "Seven10",
+                  "health": 100,
+                  "money": 9350
+                },
+                {
+                  "name": "Mr. Jefferson",
+                  "health": 38,
+                  "money": 7000
+                }
+              ]
+            },
+            {
+              "name": "Terrorists",
+              "score": 1,
+              "players": [
+                {
+                  "name": "DCB",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "MAD_O",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "CDXuuuu",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "Jurij Owsienko",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "PLYTA",
+                  "health": 0,
+                  "money": 0
+                }
+              ]
+            }
+          ],
+          "kills": [
+            {
+              "killer": "Jurij Owsienko",
+              "victim": "GIGI",
+              "weapon": "AK-47"
+            }
+          ]
+        },
+        "processing_time_seconds": 20.2446
+      },
+      {
+        "frame_number": 7,
+        "timestamp": "2026-02-01T23:48:52.601657",
+        "frame_filename": "dorozea/debug/frame_20260201_234853.jpg",
+        "analysis": {
+          "map": "Overpass",
+          "weapon": [
+            {
+              "name": "MAG-7",
+              "type": "Shotgun",
+              "skin": "Default",
+              "ammo": 5,
+              "is_active": false
+            },
+            {
+              "name": "USP-S",
+              "type": "Pistol",
+              "skin": "Default",
+              "ammo": 12,
+              "is_active": false
+            },
+            {
+              "name": "Huntsman Knife",
+              "type": "Knife",
+              "skin": "Vanilla",
+              "ammo": 0,
+              "is_active": true
+            }
+          ],
+          "state": {
+            "timer": 111,
+            "score": {
+              "team1": 8,
+              "team2": 1
+            },
+            "players": {
+              "team1": 5,
+              "team2": 5
+            }
+          },
+          "player": {
+            "health": 100,
+            "money": 2350
+          },
+          "teams": [
+            {
+              "name": "Terrorists",
+              "score": 8,
+              "players": []
+            },
+            {
+              "name": "Counter-Terrorists",
+              "score": 1,
+              "players": [
+                {
+                  "name": "GIGI",
+                  "health": 100,
+                  "money": 0
+                }
+              ]
+            }
+          ],
+          "kills": []
+        },
+        "processing_time_seconds": 15.6527
+      },
+      {
+        "frame_number": 8,
+        "timestamp": "2026-02-01T23:49:19.415924",
+        "frame_filename": "dorozea/debug/frame_20260201_234920.jpg",
+        "analysis": {
+          "map": "Overpass",
+          "weapon": [
+            {
+              "name": "XM1014",
+              "type": "Shotgun",
+              "skin": "Canvas Cloud",
+              "ammo": 7,
+              "is_active": true
+            },
+            {
+              "name": "P250",
+              "type": "Pistol",
+              "skin": "Canvas Cloud",
+              "ammo": 13,
+              "is_active": false
+            },
+            {
+              "name": "Knife",
+              "type": "Melee",
+              "skin": "Default",
+              "ammo": 0,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 85,
+            "score": {
+              "team1": 8,
+              "team2": 1
+            },
+            "players": {
+              "team1": 3,
+              "team2": 3
+            }
+          },
+          "player": {
+            "health": 11,
+            "money": 2950
+          },
+          "teams": [
+            {
+              "name": "Counter-Terrorists",
+              "score": 8,
+              "players": [
+                {
+                  "name": "Mr. Jefferson",
+                  "health": 11,
+                  "money": 2950
+                },
+                {
+                  "name": "GIGI",
+                  "health": 0,
+                  "money": 0
+                }
+              ]
+            },
+            {
+              "name": "Terrorists",
+              "score": 1,
+              "players": [
+                {
+                  "name": "P\u0141YTA",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "CDXuuuuu<^>",
+                  "health": 0,
+                  "money": 0
+                }
+              ]
+            }
+          ],
+          "kills": [
+            {
+              "killer": "GIGI",
+              "victim": "CDXuuuuu<^>",
+              "weapon": "AWP"
+            },
+            {
+              "killer": "P\u0141YTA + OCB_\u4e97\u00d7G.X.C\u4e97",
+              "victim": "GIGI",
+              "weapon": "M4A4"
+            }
+          ]
+        },
+        "processing_time_seconds": 18.2895
+      },
+      {
+        "frame_number": 9,
+        "timestamp": "2026-02-01T23:49:48.764308",
+        "frame_filename": "dorozea/debug/frame_20260201_234949.jpg",
+        "analysis": {
+          "map": "Overpass",
+          "weapon": [
+            {
+              "name": "AK-47",
+              "type": "Rifle",
+              "skin": "Neon Revolution",
+              "ammo": 16,
+              "is_active": true
+            },
+            {
+              "name": "Glock-18",
+              "type": "Pistol",
+              "skin": "Standard",
+              "ammo": 20,
+              "is_active": false
+            },
+            {
+              "name": "Knife",
+              "type": "Melee",
+              "skin": "Standard",
+              "ammo": 0,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 55,
+            "score": {
+              "team1": 8,
+              "team2": 1
+            },
+            "players": {
+              "team1": 1,
+              "team2": 2
+            }
+          },
+          "player": {
+            "health": 100,
+            "money": 10600
+          },
+          "teams": [
+            {
+              "name": "Terrorists",
+              "score": 8,
+              "players": [
+                {
+                  "name": "Mocha Frap..",
+                  "health": 0,
+                  "money": 2950
+                },
+                {
+                  "name": "Klim",
+                  "health": 0,
+                  "money": 2200
+                },
+                {
+                  "name": "GiGi",
+                  "health": 0,
+                  "money": 2550
+                },
+                {
+                  "name": "Seven10",
+                  "health": 0,
+                  "money": 12550
+                },
+                {
+                  "name": "Mr. Jefferson",
+                  "health": 100,
+                  "money": 10600
+                }
+              ]
+            },
+            {
+              "name": "Counter-Terrorists",
+              "score": 1,
+              "players": [
+                {
+                  "name": "OCB \u3113\u3128G.X.C\u3113\u3128",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "MAO O",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "CDXuuuuu..",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "Jurij Owsie..",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "PLYTA",
+                  "health": 0,
+                  "money": 0
+                }
+              ]
+            }
+          ],
+          "kills": []
+        },
+        "processing_time_seconds": 16.4387
+      },
+      {
+        "frame_number": 10,
+        "timestamp": "2026-02-01T23:50:16.119795",
+        "frame_filename": "dorozea/debug/frame_20260201_235017.jpg",
+        "analysis": {
+          "map": "Overpass",
+          "weapon": [
+            {
+              "name": "Huntsman Knife",
+              "type": "Knife",
+              "skin": "Night (Name Tag: 'Lill Babs')",
+              "ammo": 0,
+              "is_active": true
+            },
+            {
+              "name": "M4A1-S",
+              "type": "Rifle",
+              "skin": "Default",
+              "ammo": 20,
+              "is_active": false
+            },
+            {
+              "name": "USP-S",
+              "type": "Pistol",
+              "skin": "Default",
+              "ammo": 12,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 8,
+            "score": {
+              "team1": 8,
+              "team2": 2
+            },
+            "players": {
+              "team1": 5,
+              "team2": 0
+            }
+          },
+          "player": {
+            "health": 100,
+            "money": 900
+          },
+          "teams": [
+            {
+              "name": "Counter-Terrorists",
+              "score": 8,
+              "players": [
+                {
+                  "name": "Mocha Frap..",
+                  "health": 100,
+                  "money": 900
+                },
+                {
+                  "name": "Klim",
+                  "health": 100,
+                  "money": 2400
+                },
+                {
+                  "name": "GiGi",
+                  "health": 100,
+                  "money": 4150
+                },
+                {
+                  "name": "Seven10",
+                  "health": 100,
+                  "money": 9850
+                },
+                {
+                  "name": "Mr. Jefferson",
+                  "health": 100,
+                  "money": 6900
+                }
+              ]
+            },
+            {
+              "name": "Terrorists",
+              "score": 2,
+              "players": [
+                {
+                  "name": "OCB",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "MAO O",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "CDXuuuuu",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "Jurij Owsie...",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "P\u0141YTA",
+                  "health": 0,
+                  "money": 0
+                }
+              ]
+            }
+          ],
+          "kills": []
+        },
+        "processing_time_seconds": 28.0147
+      },
+      {
+        "frame_number": 11,
+        "timestamp": "2026-02-01T23:50:55.113726",
+        "frame_filename": "dorozea/debug/frame_20260201_235055.jpg",
+        "analysis": {
+          "map": "Overpass",
+          "weapon": [
+            {
+              "name": "M4A1-S",
+              "type": "Rifle",
+              "skin": "Decimator",
+              "ammo": 11,
+              "is_active": true
+            },
+            {
+              "name": "USP-S",
+              "type": "Pistol",
+              "skin": "Default",
+              "ammo": 12,
+              "is_active": false
+            },
+            {
+              "name": "Knife",
+              "type": "Melee",
+              "skin": "Default",
+              "ammo": 0,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 85,
+            "score": {
+              "team1": 8,
+              "team2": 2
+            },
+            "players": {
+              "team1": 3,
+              "team2": 1
+            }
+          },
+          "player": {
+            "health": 100,
+            "money": 4000
+          },
+          "teams": [
+            {
+              "name": "Counter-Terrorists",
+              "score": 8,
+              "players": [
+                {
+                  "name": "Mocha Frappuccino",
+                  "health": 0,
+                  "money": 900
+                },
+                {
+                  "name": "Klim",
+                  "health": 0,
+                  "money": 1700
+                },
+                {
+                  "name": "GIGI",
+                  "health": 100,
+                  "money": 2650
+                },
+                {
+                  "name": "Seven10",
+                  "health": 100,
+                  "money": 5650
+                },
+                {
+                  "name": "Mr. Jefferson",
+                  "health": 100,
+                  "money": 4000
+                }
+              ]
+            },
+            {
+              "name": "Terrorists",
+              "score": 2,
+              "players": [
+                {
+                  "name": "OCB",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "MAO O",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "CDXuuuuuu-",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "Jurij Owsienko",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "PLYTA",
+                  "health": 0,
+                  "money": 0
+                }
+              ]
+            }
+          ],
+          "kills": [
+            {
+              "killer": "Klim",
+              "victim": "PLYTA",
+              "weapon": "M4A4"
+            },
+            {
+              "killer": "Klim",
+              "victim": "OCB",
+              "weapon": "M4A4"
+            },
+            {
+              "killer": "MAO O",
+              "victim": "Klim",
+              "weapon": "AK-47"
+            }
+          ]
+        },
+        "processing_time_seconds": 32.5395
+      },
+      {
+        "frame_number": 12,
+        "timestamp": "2026-02-01T23:51:38.555747",
+        "frame_filename": "dorozea/debug/frame_20260201_235139.jpg",
+        "analysis": {
+          "map": "Overpass",
+          "weapon": [
+            {
+              "name": "USP-S",
+              "type": "Pistol",
+              "skin": "Default",
+              "ammo": 12,
+              "is_active": true
+            },
+            {
+              "name": "M4A1-S",
+              "type": "Rifle",
+              "skin": "Default",
+              "ammo": 0,
+              "is_active": false
+            },
+            {
+              "name": "Knife",
+              "type": "Melee",
+              "skin": "Default",
+              "ammo": 0,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 7,
+            "score": {
+              "team1": 9,
+              "team2": 2
+            },
+            "players": {
+              "team1": 5,
+              "team2": 5
+            }
+          },
+          "player": {
+            "health": 100,
+            "money": 2400
+          },
+          "teams": [
+            {
+              "name": "Counter-Terrorists",
+              "score": 9,
+              "players": [
+                {
+                  "name": "Mocha Frap...",
+                  "health": 100,
+                  "money": 2400
+                },
+                {
+                  "name": "Klim",
+                  "health": 100,
+                  "money": 2500
+                },
+                {
+                  "name": "GIGI",
+                  "health": 100,
+                  "money": 5850
+                },
+                {
+                  "name": "Seven10",
+                  "health": 100,
+                  "money": 9450
+                },
+                {
+                  "name": "Mr. Jefferson",
+                  "health": 100,
+                  "money": 1200
+                }
+              ]
+            },
+            {
+              "name": "Terrorists",
+              "score": 2,
+              "players": [
+                {
+                  "name": "OCB...",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "MAO O",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "CDXuuuuu...",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "Jurij Owsie...",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "P\u0141YTA",
+                  "health": 100,
+                  "money": 0
+                }
+              ]
+            }
+          ],
+          "kills": []
+        },
+        "processing_time_seconds": 28.3464
+      },
+      {
+        "frame_number": 13,
+        "timestamp": "2026-02-01T23:52:17.870116",
+        "frame_filename": "dorozea/debug/frame_20260201_235218.jpg",
+        "analysis": {
+          "map": "Overpass",
+          "weapon": [
+            {
+              "name": "M4A1-S",
+              "type": "Rifle",
+              "skin": "Decimator",
+              "ammo": 14,
+              "is_active": true
+            },
+            {
+              "name": "USP-S",
+              "type": "Pistol",
+              "skin": "default",
+              "ammo": 12,
+              "is_active": false
+            },
+            {
+              "name": "Knife",
+              "type": "Melee",
+              "skin": "default",
+              "ammo": 0,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 40,
+            "score": {
+              "team1": 9,
+              "team2": 2
+            },
+            "players": {
+              "team1": 2,
+              "team2": 2
+            }
+          },
+          "player": {
+            "health": 78,
+            "money": 500
+          },
+          "teams": [
+            {
+              "name": "Counter-Terrorists",
+              "score": 9,
+              "players": [
+                {
+                  "name": "P\u0141YTA",
+                  "health": 0,
+                  "money": 0
+                }
+              ]
+            },
+            {
+              "name": "Terrorists",
+              "score": 2,
+              "players": [
+                {
+                  "name": "Mocha Frappuccino",
+                  "health": 100,
+                  "money": 0
+                }
+              ]
+            }
+          ],
+          "kills": [
+            {
+              "killer": "Mocha Frappuccino",
+              "victim": "P\u0141YTA",
+              "weapon": "M4A1-S"
+            }
+          ]
+        },
+        "processing_time_seconds": 18.7563
+      },
+      {
+        "frame_number": 1,
+        "timestamp": "2026-02-01T23:55:14.334552",
+        "frame_filename": "dorozea/debug/frame_20260201_235515.jpg",
+        "analysis": {
+          "map": "Overpass",
+          "weapon": [
+            {
+              "name": "AK-47",
+              "type": "Rifle",
+              "skin": "Slate",
+              "ammo": 25,
+              "is_active": true
+            },
+            {
+              "name": "Pistol",
+              "type": "Secondary",
+              "skin": "Default",
+              "ammo": 0,
+              "is_active": false
+            },
+            {
+              "name": "Knife",
+              "type": "Melee",
+              "skin": "Default",
+              "ammo": 0,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 58,
+            "score": {
+              "team1": 3,
+              "team2": 10
+            },
+            "players": {
+              "team1": 2,
+              "team2": 2
+            }
+          },
+          "player": {
+            "health": 45,
+            "money": 450
+          },
+          "teams": [
+            {
+              "name": "Terrorists",
+              "score": 3,
+              "players": [
+                {
+                  "name": "OCB",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "MAO 0",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "CDXuuuuu",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "Jurij Owsie...",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "PEYTA",
+                  "health": 100,
+                  "money": 0
+                }
+              ]
+            },
+            {
+              "name": "Counter-Terrorists",
+              "score": 10,
+              "players": [
+                {
+                  "name": "Mocha Frap...",
+                  "health": 0,
+                  "money": 1400
+                },
+                {
+                  "name": "Klim",
+                  "health": 0,
+                  "money": 700
+                },
+                {
+                  "name": "GIGI",
+                  "health": 45,
+                  "money": 450
+                },
+                {
+                  "name": "Seven10",
+                  "health": 100,
+                  "money": 650
+                },
+                {
+                  "name": "Mr. Jefferson",
+                  "health": 0,
+                  "money": 1050
+                }
+              ]
+            }
+          ],
+          "kills": []
+        },
+        "processing_time_seconds": 34.487
+      },
+      {
+        "frame_number": 2,
+        "timestamp": "2026-02-01T23:55:59.998191",
+        "frame_filename": "dorozea/debug/frame_20260201_235601.jpg",
+        "analysis": {
+          "map": "none",
+          "weapon": [],
+          "state": {
+            "timer": 0,
+            "score": {
+              "team1": 0,
+              "team2": 0
+            },
+            "players": {
+              "team1": 0,
+              "team2": 0
+            }
+          },
+          "player": {
+            "health": 0,
+            "money": 0
+          },
+          "teams": [],
+          "kills": []
+        },
+        "processing_time_seconds": 6.0905
+      },
+      {
+        "frame_number": 3,
+        "timestamp": "2026-02-01T23:56:17.475277",
+        "frame_filename": "dorozea/debug/frame_20260201_235618.jpg",
+        "analysis": {
+          "map": "none",
+          "weapon": [],
+          "state": {
+            "timer": 0,
+            "score": {
+              "team1": 0,
+              "team2": 0
+            },
+            "players": {
+              "team1": 0,
+              "team2": 0
+            }
+          },
+          "player": {
+            "health": 0,
+            "money": 0
+          },
+          "teams": [],
+          "kills": []
+        },
+        "processing_time_seconds": 5.8047
+      },
+      {
+        "frame_number": 4,
+        "timestamp": "2026-02-01T23:56:34.607717",
+        "frame_filename": "dorozea/debug/frame_20260201_235635.jpg",
+        "analysis": {
+          "map": "none",
+          "weapon": [],
+          "state": {
+            "timer": 0,
+            "score": {
+              "team1": 0,
+              "team2": 0
+            },
+            "players": {
+              "team1": 0,
+              "team2": 0
+            }
+          },
+          "player": {
+            "health": 0,
+            "money": 0
+          },
+          "teams": [],
+          "kills": []
+        },
+        "processing_time_seconds": 6.9672
+      },
+      {
+        "frame_number": 5,
+        "timestamp": "2026-02-01T23:56:52.951906",
+        "frame_filename": "dorozea/debug/frame_20260201_235654.jpg",
+        "analysis": {
+          "map": "none",
+          "weapon": [],
+          "state": {
+            "timer": 0,
+            "score": {
+              "team1": 0,
+              "team2": 0
+            },
+            "players": {
+              "team1": 0,
+              "team2": 0
+            }
+          },
+          "player": {
+            "health": 0,
+            "money": 0
+          },
+          "teams": [],
+          "kills": []
+        },
+        "processing_time_seconds": 4.6674
+      },
+      {
+        "frame_number": 6,
+        "timestamp": "2026-02-01T23:57:09.388696",
+        "frame_filename": "dorozea/debug/frame_20260201_235710.jpg",
+        "analysis": {
+          "map": "none",
+          "weapon": [],
+          "state": {
+            "timer": 0,
+            "score": {
+              "team1": 0,
+              "team2": 0
+            },
+            "players": {
+              "team1": 0,
+              "team2": 0
+            }
+          },
+          "player": {
+            "health": 0,
+            "money": 0
+          },
+          "teams": [],
+          "kills": []
+        },
+        "processing_time_seconds": 7.2669
+      },
+      {
+        "frame_number": 7,
+        "timestamp": "2026-02-01T23:57:28.266423",
+        "frame_filename": "dorozea/debug/frame_20260201_235729.jpg",
+        "analysis": {
+          "map": "none",
+          "weapon": [],
+          "state": {
+            "timer": 0,
+            "score": {
+              "team1": 0,
+              "team2": 0
+            },
+            "players": {
+              "team1": 0,
+              "team2": 0
+            }
+          },
+          "player": {
+            "health": 0,
+            "money": 0
+          },
+          "teams": [],
+          "kills": []
+        },
+        "processing_time_seconds": 5.1454
+      },
+      {
+        "frame_number": 8,
+        "timestamp": "2026-02-01T23:57:44.348070",
+        "frame_filename": "dorozea/debug/frame_20260201_235745.jpg",
+        "analysis": {
+          "map": "none",
+          "weapon": [],
+          "state": {
+            "timer": 0,
+            "score": {
+              "team1": 0,
+              "team2": 0
+            },
+            "players": {
+              "team1": 0,
+              "team2": 0
+            }
+          },
+          "player": {
+            "health": 0,
+            "money": 0
+          },
+          "teams": [],
+          "kills": []
+        },
+        "processing_time_seconds": 6.8431
+      },
+      {
+        "frame_number": 9,
+        "timestamp": "2026-02-01T23:58:02.165812",
+        "frame_filename": "dorozea/debug/frame_20260201_235803.jpg",
+        "analysis": {
+          "map": "Overpass",
+          "weapon": [
+            {
+              "name": "XM1014",
+              "type": "Shotgun",
+              "skin": "Canvas Cloud",
+              "ammo": 7,
+              "is_active": true
+            },
+            {
+              "name": "Glock-18",
+              "type": "Pistol",
+              "skin": "Default",
+              "ammo": 20,
+              "is_active": false
+            },
+            {
+              "name": "Knife",
+              "type": "Melee",
+              "skin": "Default",
+              "ammo": 0,
+              "is_active": false
+            },
+            {
+              "name": "HE Grenade",
+              "type": "Grenade",
+              "skin": "Default",
+              "ammo": 1,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 115,
+            "score": {
+              "team1": 4,
+              "team2": 11
+            },
+            "players": {
+              "team1": 5,
+              "team2": 5
+            }
+          },
+          "player": {
+            "health": 100,
+            "money": 950
+          },
+          "teams": [
+            {
+              "name": "Terrorists",
+              "score": 4,
+              "players": [
+                {
+                  "name": "Klim",
+                  "health": 100,
+                  "money": 950
+                }
+              ]
+            },
+            {
+              "name": "Counter-Terrorists",
+              "score": 11,
+              "players": []
+            }
+          ],
+          "kills": []
+        },
+        "processing_time_seconds": 12.2648
+      },
+      {
+        "frame_number": 10,
+        "timestamp": "2026-02-01T23:58:25.552984",
+        "frame_filename": "dorozea/debug/frame_20260201_235826.jpg",
+        "analysis": {
+          "map": "Overpass",
+          "weapon": [
+            {
+              "name": "XM1014",
+              "type": "Shotgun",
+              "skin": "Canvas Cloud",
+              "ammo": 7,
+              "is_active": true
+            },
+            {
+              "name": "Glock-18",
+              "type": "Pistol",
+              "skin": "Unknown",
+              "ammo": 20,
+              "is_active": false
+            },
+            {
+              "name": "Knife",
+              "type": "Melee",
+              "skin": "Default",
+              "ammo": 0,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 93,
+            "score": {
+              "team1": 4,
+              "team2": 11
+            },
+            "players": {
+              "team1": 5,
+              "team2": 4
+            }
+          },
+          "player": {
+            "health": 100,
+            "money": 950
+          },
+          "teams": [
+            {
+              "name": "Terrorists",
+              "score": 4,
+              "players": [
+                {
+                  "name": "Mr. Jefferson",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "Mocha Frappuccino",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "Klim",
+                  "health": 100,
+                  "money": 0
+                }
+              ]
+            },
+            {
+              "name": "Counter-Terrorists",
+              "score": 11,
+              "players": []
+            }
+          ],
+          "kills": []
+        },
+        "processing_time_seconds": 16.0036
+      },
+      {
+        "frame_number": 11,
+        "timestamp": "2026-02-01T23:58:52.529918",
+        "frame_filename": "dorozea/debug/frame_20260201_235853.jpg",
+        "analysis": {
+          "map": "Overpass",
+          "weapon": [
+            {
+              "name": "C4 Explosive",
+              "type": "Explosive",
+              "skin": "Default",
+              "ammo": 1,
+              "is_active": true
+            },
+            {
+              "name": "XM1014",
+              "type": "Shotgun",
+              "skin": "Default",
+              "ammo": 7,
+              "is_active": false
+            },
+            {
+              "name": "Glock-18",
+              "type": "Pistol",
+              "skin": "Default",
+              "ammo": 20,
+              "is_active": false
+            },
+            {
+              "name": "Knife",
+              "type": "Melee",
+              "skin": "Default",
+              "ammo": 0,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 0,
+            "score": {
+              "team1": 4,
+              "team2": 12
+            },
+            "players": {
+              "team1": 0,
+              "team2": 3
+            }
+          },
+          "player": {
+            "health": 100,
+            "money": 6600
+          },
+          "teams": [
+            {
+              "name": "Counter-Terrorists",
+              "score": 4,
+              "players": [
+                {
+                  "name": "DCB...G.X.C",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "_MAO_D",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "CDXuuuuu~",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "Jurij Owsienko",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "P\u0141YTA",
+                  "health": 0,
+                  "money": 0
+                }
+              ]
+            },
+            {
+              "name": "Terrorists",
+              "score": 12,
+              "players": [
+                {
+                  "name": "Mocha Frappuccino",
+                  "health": 100,
+                  "money": 6600
+                },
+                {
+                  "name": "Klim",
+                  "health": 100,
+                  "money": 6200
+                },
+                {
+                  "name": "GIGI",
+                  "health": 0,
+                  "money": 6050
+                },
+                {
+                  "name": "Seven10",
+                  "health": 0,
+                  "money": 4050
+                },
+                {
+                  "name": "Mr. Jefferson",
+                  "health": 20,
+                  "money": 5650
+                }
+              ]
+            }
+          ],
+          "kills": [
+            {
+              "killer": "Mocha Frappuccino",
+              "victim": "DCB...G.X.C",
+              "weapon": "XM1014"
+            },
+            {
+              "killer": "Mocha Frappuccino",
+              "victim": "_MAO_D",
+              "weapon": "XM1014"
+            },
+            {
+              "killer": "Mocha Frappuccino",
+              "victim": "P\u0141YTA",
+              "weapon": "XM1014"
+            },
+            {
+              "killer": "Mr. Jefferson",
+              "victim": "Jurij Owsienko",
+              "weapon": "M4A1-S"
+            }
+          ]
+        },
+        "processing_time_seconds": 30.2703
+      },
+      {
+        "frame_number": 12,
+        "timestamp": "2026-02-01T23:59:33.894244",
+        "frame_filename": "dorozea/debug/frame_20260201_235935.jpg",
+        "analysis": {
+          "map": "de_overpass",
+          "weapon": [
+            {
+              "name": "Mag-7",
+              "type": "Shotgun",
+              "skin": "Default",
+              "ammo": 5,
+              "is_active": true
+            },
+            {
+              "name": "P250",
+              "type": "Pistol",
+              "skin": "Default",
+              "ammo": 13,
+              "is_active": false
+            },
+            {
+              "name": "Knife",
+              "type": "Melee",
+              "skin": "Default",
+              "ammo": 0,
+              "is_active": false
+            },
+            {
+              "name": "Smoke Grenade",
+              "type": "Grenade",
+              "skin": "Default",
+              "ammo": 1,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 99,
+            "score": {
+              "team1": 4,
+              "team2": 12
+            },
+            "players": {
+              "team1": 3,
+              "team2": 4
+            }
+          },
+          "player": {
+            "health": 100,
+            "money": 5900
+          },
+          "teams": [
+            {
+              "name": "Terrorists",
+              "score": 4,
+              "players": [
+                {
+                  "name": "GIGI",
+                  "health": 100,
+                  "money": 5900
+                },
+                {
+                  "name": "Seven10",
+                  "health": 100,
+                  "money": 0
+                }
+              ]
+            },
+            {
+              "name": "Counter-Terrorists",
+              "score": 12,
+              "players": []
+            }
+          ],
+          "kills": [
+            {
+              "killer": "GIGI",
+              "victim": "OCB_\u4e97\u00d7G.X.C\u00d7\u4e97",
+              "weapon": "AK-47"
+            },
+            {
+              "killer": "Seven10",
+              "victim": "Jurij Owsienko",
+              "weapon": "AK-47"
+            },
+            {
+              "killer": "OCB_\u4e97\u00d7G.X.C\u00d7\u4e97",
+              "victim": "GIGI",
+              "weapon": "Mag-7"
+            }
+          ]
+        },
+        "processing_time_seconds": 25.4529
+      },
+      {
+        "frame_number": 13,
+        "timestamp": "2026-02-02T00:00:10.607140",
+        "frame_filename": "dorozea/debug/frame_20260202_000011.jpg",
+        "analysis": {
+          "map": "Overpass",
+          "weapon": [
+            {
+              "name": "SSG 08",
+              "type": "Sniper Rifle",
+              "skin": "Acid Fade",
+              "ammo": 10,
+              "is_active": true
+            },
+            {
+              "name": "Glock-18",
+              "type": "Pistol",
+              "skin": "High Beam",
+              "ammo": 20,
+              "is_active": true
+            },
+            {
+              "name": "Knife",
+              "type": "Melee",
+              "skin": "Default",
+              "ammo": 0,
+              "is_active": true
+            },
+            {
+              "name": "AK-47",
+              "type": "Rifle",
+              "skin": "Steel Delta",
+              "ammo": 30,
+              "is_active": true
+            },
+            {
+              "name": "XM1014",
+              "type": "Shotgun",
+              "skin": "Default",
+              "ammo": 7,
+              "is_active": true
+            }
+          ],
+          "state": {
+            "timer": 0,
+            "score": {
+              "team1": 13,
+              "team2": 0
+            },
+            "players": {
+              "team1": 5,
+              "team2": 0
+            }
+          },
+          "player": {
+            "health": 100,
+            "money": 8700
+          },
+          "teams": [
+            {
+              "name": "Terrorists",
+              "score": 13,
+              "players": [
+                {
+                  "name": "Mocha Frappuccino",
+                  "health": 100,
+                  "money": 8700
+                },
+                {
+                  "name": "Mr. Jefferson",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "Klim",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "GIGI",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "Seven10",
+                  "health": 100,
+                  "money": 0
+                }
+              ]
+            }
+          ],
+          "kills": [
+            {
+              "killer": "Klim",
+              "victim": "Enemy",
+              "weapon": "HE Grenade"
+            },
+            {
+              "killer": "Seven10",
+              "victim": "Enemy",
+              "weapon": "XM1014"
+            }
+          ]
+        },
+        "processing_time_seconds": 16.3089
+      },
+      {
+        "frame_number": 14,
+        "timestamp": "2026-02-02T00:00:38.064854",
+        "frame_filename": "dorozea/debug/frame_20260202_000038.jpg",
+        "analysis": {
+          "map": "Office",
+          "weapon": [
+            {
+              "name": "Dual Berettas",
+              "type": "Pistol",
+              "skin": "Emerald",
+              "ammo": 30,
+              "is_active": true
+            }
+          ],
+          "state": {
+            "timer": 0,
+            "score": {
+              "team1": 0,
+              "team2": 0
+            },
+            "players": {
+              "team1": 2,
+              "team2": 0
+            }
+          },
+          "player": {
+            "health": 100,
+            "money": 0
+          },
+          "teams": [
+            {
+              "name": "Terrorists",
+              "score": 0,
+              "players": [
+                {
+                  "name": "Mocha Frappuccino",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "Klim",
+                  "health": 100,
+                  "money": 0
+                }
+              ]
+            }
+          ],
+          "kills": []
+        },
+        "processing_time_seconds": 14.9242
+      },
+      {
+        "frame_number": 15,
+        "timestamp": "2026-02-02T00:01:03.883889",
+        "frame_filename": "dorozea/debug/frame_20260202_000104.jpg",
+        "analysis": {
+          "map": "Train",
+          "weapon": [
+            {
+              "name": "Dual Berettas",
+              "type": "Pistol",
+              "skin": "Emerald",
+              "ammo": 30,
+              "is_active": true
+            }
+          ],
+          "state": {
+            "timer": 0,
+            "score": {
+              "team1": 0,
+              "team2": 0
+            },
+            "players": {
+              "team1": 2,
+              "team2": 0
+            }
+          },
+          "player": {
+            "health": 100,
+            "money": 0
+          },
+          "teams": [
+            {
+              "name": "Lobby",
+              "score": 0,
+              "players": [
+                {
+                  "name": "Mocha Frappuccino",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "Klim",
+                  "health": 100,
+                  "money": 0
+                }
+              ]
+            }
+          ],
+          "kills": []
+        },
+        "processing_time_seconds": 17.1613
+      }
+    ],
+    "last_update": "2026-02-02T00:01:03.883889",
+    "total_frames": 15
+  }
+}

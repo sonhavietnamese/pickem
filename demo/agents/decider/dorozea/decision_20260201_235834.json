@@ -1,0 +1,29 @@
+{
+  "market_id": 1042,
+  "market_address": "7zKktorgsJ3ae7tcVeq7MNrwYFdpuVBbJdxuyp64y3s2",
+  "market_question": "Will the Counter-Terrorists win the current round?",
+  "market_options": [
+    "Yes",
+    "No"
+  ],
+  "baseline_frame_id": 11,
+  "current_frame_id": 9,
+  "decision": {
+    "winning_option": "Yes",
+    "reason": "The CT score increased from 8 to 11, confirming they won the round after holding a 3v1 advantage.",
+    "full_reason": "At the baseline (frame 11), the Counter-Terrorists had an 8-2 lead and a 3v1 player advantage with 85 seconds remaining. In the current state, the Counter-Terrorists' score has increased to 11. Since the score progressed past the baseline round and the CTs earned the point, they won the round.",
+    "baseline_comparison": "Baseline: CTs 8-2 leads, 3v1 advantage. Current: CTs leading 11-4.",
+    "is_resolved": true
+  },
+  "yes_winner": true,
+  "settle_result": {
+    "success": true,
+    "market": "7zKktorgsJ3ae7tcVeq7MNrwYFdpuVBbJdxuyp64y3s2",
+    "signature": "nRvZQutEJzZz2Tmme1an7atWZSyCQx9ENF1gCYazcgm1W4EMAf5CDU5ReHvNdLPgMjG7Wj1Y1bKo9iWMHMZFLCu",
+    "winner": "YES",
+    "network": "devnet",
+    "explorerUrl": "https://explorer.solana.com/address/7zKktorgsJ3ae7tcVeq7MNrwYFdpuVBbJdxuyp64y3s2?cluster=devnet",
+    "txUrl": "https://explorer.solana.com/tx/nRvZQutEJzZz2Tmme1an7atWZSyCQx9ENF1gCYazcgm1W4EMAf5CDU5ReHvNdLPgMjG7Wj1Y1bKo9iWMHMZFLCu?cluster=devnet"
+  },
+  "timestamp": "2026-02-01T23:58:34.640849"
+}

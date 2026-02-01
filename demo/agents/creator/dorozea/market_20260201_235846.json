@@ -1,0 +1,30 @@
+{
+  "frame_id": 9,
+  "timestamp": "2026-02-01T23:58:46.397170",
+  "ollama_market": {
+    "id": 101,
+    "question": "Will the player Klim record at least one kill with the XM1014 shotgun during the current round?",
+    "duration_minutes": 5,
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "baseline_value": "Klim current kills this round: 0",
+    "prediction_type": "Weapon"
+  },
+  "api_request": {
+    "question": "Will the player Klim record at least one kill with the XM1014 shotgun during the current round?",
+    "initialLiquidity": 10000000,
+    "endTime": 300,
+    "yesOddsBps": 5000
+  },
+  "api_response": {
+    "success": true,
+    "market": "4s8JGB2V8patUsQhYHxquRPCsTaZok4i8gotkXuJr6Bm",
+    "signature": "2dbtcf1HiMUrekcqZ8yTFhGXPSHPS5fiXLXjHUpztUsSpYC47wZ33zHu3PMiBrhoNafsSyQbHwV76mvw8p6pS7uw",
+    "question": "Will the player Klim record at least one kill with the XM1014 shotgun during the current round?",
+    "network": "devnet",
+    "explorerUrl": "https://explorer.solana.com/address/4s8JGB2V8patUsQhYHxquRPCsTaZok4i8gotkXuJr6Bm?cluster=devnet",
+    "txUrl": "https://explorer.solana.com/tx/2dbtcf1HiMUrekcqZ8yTFhGXPSHPS5fiXLXjHUpztUsSpYC47wZ33zHu3PMiBrhoNafsSyQbHwV76mvw8p6pS7uw?cluster=devnet"
+  }
+}

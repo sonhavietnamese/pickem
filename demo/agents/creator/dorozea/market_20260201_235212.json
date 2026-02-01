@@ -1,0 +1,30 @@
+{
+  "frame_id": 11,
+  "timestamp": "2026-02-01T23:52:12.644652",
+  "ollama_market": {
+    "id": 1042,
+    "question": "Will the Counter-Terrorists win the current round?",
+    "duration_minutes": 5,
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "baseline_value": "3 CTs vs 1 T alive; 85 seconds remaining",
+    "prediction_type": "Objective"
+  },
+  "api_request": {
+    "question": "Will the Counter-Terrorists win the current round?",
+    "initialLiquidity": 10000000,
+    "endTime": 300,
+    "yesOddsBps": 5000
+  },
+  "api_response": {
+    "success": true,
+    "market": "7zKktorgsJ3ae7tcVeq7MNrwYFdpuVBbJdxuyp64y3s2",
+    "signature": "23Hxe3MSegknSom3gcmrjMfcaqDBZZUKa89g28TqrV8fWELh6f9YWWoe7SwVvBwua3q7F4ZnTCgu7aj6LnLUxasa",
+    "question": "Will the Counter-Terrorists win the current round?",
+    "network": "devnet",
+    "explorerUrl": "https://explorer.solana.com/address/7zKktorgsJ3ae7tcVeq7MNrwYFdpuVBbJdxuyp64y3s2?cluster=devnet",
+    "txUrl": "https://explorer.solana.com/tx/23Hxe3MSegknSom3gcmrjMfcaqDBZZUKa89g28TqrV8fWELh6f9YWWoe7SwVvBwua3q7F4ZnTCgu7aj6LnLUxasa?cluster=devnet"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "frame_id": 13,
+  "timestamp": "2026-02-01T23:55:34.757513",
+  "ollama_market": {
+    "id": 1024,
+    "question": "Will Mocha Frappuccino record at least one more kill before the end of the current round?",
+    "duration_minutes": 5,
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "baseline_value": "1 kill currently recorded; 2 enemies remaining",
+    "prediction_type": "Kills"
+  },
+  "api_request": {
+    "question": "Will Mocha Frappuccino record at least one more kill before the end of the current round?",
+    "initialLiquidity": 10000000,
+    "endTime": 300,
+    "yesOddsBps": 5000
+  },
+  "api_response": {
+    "success": true,
+    "market": "2NqNLcn7xsL8S6QYJq3d7pBbj2qq9vLqyLGsdk753s2Q",
+    "signature": "23BdHVBi3HVv6v3uiLsiB149xrWSmZYVVJsfDPaBTBgrZuVxwXZNT5qqe7QnXsjTjYfXNA8VpU54iTMSAmEzAmFP",
+    "question": "Will Mocha Frappuccino record at least one more kill before the end of the current round?",
+    "network": "devnet",
+    "explorerUrl": "https://explorer.solana.com/address/2NqNLcn7xsL8S6QYJq3d7pBbj2qq9vLqyLGsdk753s2Q?cluster=devnet",
+    "txUrl": "https://explorer.solana.com/tx/23BdHVBi3HVv6v3uiLsiB149xrWSmZYVVJsfDPaBTBgrZuVxwXZNT5qqe7QnXsjTjYfXNA8VpU54iTMSAmEzAmFP?cluster=devnet"
+  }
+}

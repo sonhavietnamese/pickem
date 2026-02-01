@@ -1,0 +1,29 @@
+{
+  "market_id": 1024,
+  "market_address": "2NqNLcn7xsL8S6QYJq3d7pBbj2qq9vLqyLGsdk753s2Q",
+  "market_question": "Will Mocha Frappuccino record at least one more kill before the end of the current round?",
+  "market_options": [
+    "Yes",
+    "No"
+  ],
+  "baseline_frame_id": 13,
+  "current_frame_id": 13,
+  "decision": {
+    "winning_option": "No",
+    "reason": "Mocha Frappuccino did not record any additional kills before the round ended; teammates secured the remaining eliminations.",
+    "full_reason": "At the baseline, Mocha Frappuccino had 1 kill and 2 enemies remained in the round. In the current state, the timer has reached 0, signaling the end of the round. The kill feed shows that the final two enemies were eliminated by Klim (HE Grenade) and Seven10 (XM1014), meaning Mocha Frappuccino did not record the required additional kill.",
+    "baseline_comparison": "Baseline: 1 kill, 2 enemies left; Current: Round ended with no additional kills for Mocha Frappuccino.",
+    "is_resolved": true
+  },
+  "yes_winner": false,
+  "settle_result": {
+    "success": true,
+    "market": "2NqNLcn7xsL8S6QYJq3d7pBbj2qq9vLqyLGsdk753s2Q",
+    "signature": "46rPb71TjMfG2svwzfM6HzQGn16yJHw6QvKYbVWoCk8sabnXfWexybxmiQErbE9ZbiFTpxx6Hg1cCmHCq1SVLfnb",
+    "winner": "NO",
+    "network": "devnet",
+    "explorerUrl": "https://explorer.solana.com/address/2NqNLcn7xsL8S6QYJq3d7pBbj2qq9vLqyLGsdk753s2Q?cluster=devnet",
+    "txUrl": "https://explorer.solana.com/tx/46rPb71TjMfG2svwzfM6HzQGn16yJHw6QvKYbVWoCk8sabnXfWexybxmiQErbE9ZbiFTpxx6Hg1cCmHCq1SVLfnb?cluster=devnet"
+  },
+  "timestamp": "2026-02-02T00:00:46.291006"
+}

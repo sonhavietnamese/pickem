@@ -1,0 +1,30 @@
+{
+  "frame_id": 4,
+  "timestamp": "2026-02-01T23:45:43.158179",
+  "ollama_market": {
+    "id": 101,
+    "question": "Which team will win the current round (Round 5)?",
+    "duration_minutes": 5,
+    "options": [
+      "Counter-Terrorists",
+      "Terrorists"
+    ],
+    "baseline_value": "4 CTs vs 5 Terrorists alive; Score 3-1",
+    "prediction_type": "Score"
+  },
+  "api_request": {
+    "question": "Which team will win the current round (Round 5)?",
+    "initialLiquidity": 10000000,
+    "endTime": 300,
+    "yesOddsBps": 5000
+  },
+  "api_response": {
+    "success": true,
+    "market": "YK6xug4qoQhzCSwGxeLJUpq6VK9eR1nQSRqXu7Fh54d",
+    "signature": "LrrKti7hXyhXEaDawndBSnoMCBk6EBmPWBXZBaFFgNHFZ6Y3iamwk2bjVZw65odq7iFNW9MA1Ghe9HrAzfpt4n5",
+    "question": "Which team will win the current round (Round 5)?",
+    "network": "devnet",
+    "explorerUrl": "https://explorer.solana.com/address/YK6xug4qoQhzCSwGxeLJUpq6VK9eR1nQSRqXu7Fh54d?cluster=devnet",
+    "txUrl": "https://explorer.solana.com/tx/LrrKti7hXyhXEaDawndBSnoMCBk6EBmPWBXZBaFFgNHFZ6Y3iamwk2bjVZw65odq7iFNW9MA1Ghe9HrAzfpt4n5?cluster=devnet"
+  }
+}

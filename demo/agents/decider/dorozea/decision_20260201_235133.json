@@ -1,0 +1,29 @@
+{
+  "market_id": 101,
+  "market_address": "YK6xug4qoQhzCSwGxeLJUpq6VK9eR1nQSRqXu7Fh54d",
+  "market_question": "Which team will win the current round (Round 5)?",
+  "market_options": [
+    "Counter-Terrorists",
+    "Terrorists"
+  ],
+  "baseline_frame_id": 4,
+  "current_frame_id": 10,
+  "decision": {
+    "winning_option": "Terrorists",
+    "reason": "Terrorists held a 5v4 man advantage and AK-47s in Round 5, making them the likely winners.",
+    "full_reason": "In the baseline state (Round 5), the score was 3-1 and the Terrorists had a 5v4 player advantage following the kill of Mocha Frappuccino. They also had a weapon advantage (AK-47s vs FAMAS). In the current state, the score is 8-2, indicating the Terrorists won exactly one additional round since the baseline. Given their significant tactical and man advantage during Round 5, it is most probable that Round 5 was the round they won, followed by a 5-round win streak by the Counter-Terrorists to reach the score of 8-2.",
+    "baseline_comparison": "Baseline: 4 CTs vs 5 Ts, Score 3-1; Current: Score 8-2 (T gained 1 point, CT gained 5 points).",
+    "is_resolved": true
+  },
+  "yes_winner": false,
+  "settle_result": {
+    "success": true,
+    "market": "YK6xug4qoQhzCSwGxeLJUpq6VK9eR1nQSRqXu7Fh54d",
+    "signature": "3Dc1vFVRXLWD37CkukbUrZpk6o5pWViHxPFVKxkAzZ9fo7PPy9Rnhmh5GekCvS6D8CQ57oQYiqzKG6nF7vPPphMg",
+    "winner": "NO",
+    "network": "devnet",
+    "explorerUrl": "https://explorer.solana.com/address/YK6xug4qoQhzCSwGxeLJUpq6VK9eR1nQSRqXu7Fh54d?cluster=devnet",
+    "txUrl": "https://explorer.solana.com/tx/3Dc1vFVRXLWD37CkukbUrZpk6o5pWViHxPFVKxkAzZ9fo7PPy9Rnhmh5GekCvS6D8CQ57oQYiqzKG6nF7vPPphMg?cluster=devnet"
+  },
+  "timestamp": "2026-02-01T23:51:33.141537"
+}

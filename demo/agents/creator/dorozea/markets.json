@@ -1,0 +1,182 @@
+[
+  {
+    "frame_id": 1,
+    "timestamp": "2026-02-01T23:39:52.304712",
+    "ollama_market": {
+      "id": 1,
+      "question": "Will the Counter-Terrorists (Team 1) win the current round?",
+      "duration_minutes": 5,
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "baseline_value": "Current Score 2-1; 3 CTs vs 1 T alive",
+      "prediction_type": "Score"
+    },
+    "api_request": {
+      "question": "Will the Counter-Terrorists (Team 1) win the current round?",
+      "initialLiquidity": 10000000,
+      "endTime": 300,
+      "yesOddsBps": 5000
+    },
+    "api_response": {
+      "success": true,
+      "market": "ASYMh5JqF8vg7XC8dbyEysNbf7mKaTJAQhR18DTo4Dd2",
+      "signature": "2gtpfKCfyaVqCLgQEQV5imQva7YwMKeFHu3rqW6w4sLiRNYhqvQ6jrgHcp7PqgbJoDEgD9egDffcMVRB6NR9ARgh",
+      "question": "Will the Counter-Terrorists (Team 1) win the current round?",
+      "network": "devnet",
+      "explorerUrl": "https://explorer.solana.com/address/ASYMh5JqF8vg7XC8dbyEysNbf7mKaTJAQhR18DTo4Dd2?cluster=devnet",
+      "txUrl": "https://explorer.solana.com/tx/2gtpfKCfyaVqCLgQEQV5imQva7YwMKeFHu3rqW6w4sLiRNYhqvQ6jrgHcp7PqgbJoDEgD9egDffcMVRB6NR9ARgh?cluster=devnet"
+    }
+  },
+  {
+    "frame_id": 4,
+    "timestamp": "2026-02-01T23:45:43.158179",
+    "ollama_market": {
+      "id": 101,
+      "question": "Which team will win the current round (Round 5)?",
+      "duration_minutes": 5,
+      "options": [
+        "Counter-Terrorists",
+        "Terrorists"
+      ],
+      "baseline_value": "4 CTs vs 5 Terrorists alive; Score 3-1",
+      "prediction_type": "Score"
+    },
+    "api_request": {
+      "question": "Which team will win the current round (Round 5)?",
+      "initialLiquidity": 10000000,
+      "endTime": 300,
+      "yesOddsBps": 5000
+    },
+    "api_response": {
+      "success": true,
+      "market": "YK6xug4qoQhzCSwGxeLJUpq6VK9eR1nQSRqXu7Fh54d",
+      "signature": "LrrKti7hXyhXEaDawndBSnoMCBk6EBmPWBXZBaFFgNHFZ6Y3iamwk2bjVZw65odq7iFNW9MA1Ghe9HrAzfpt4n5",
+      "question": "Which team will win the current round (Round 5)?",
+      "network": "devnet",
+      "explorerUrl": "https://explorer.solana.com/address/YK6xug4qoQhzCSwGxeLJUpq6VK9eR1nQSRqXu7Fh54d?cluster=devnet",
+      "txUrl": "https://explorer.solana.com/tx/LrrKti7hXyhXEaDawndBSnoMCBk6EBmPWBXZBaFFgNHFZ6Y3iamwk2bjVZw65odq7iFNW9MA1Ghe9HrAzfpt4n5?cluster=devnet"
+    }
+  },
+  {
+    "frame_id": 6,
+    "timestamp": "2026-02-01T23:48:57.038886",
+    "ollama_market": {
+      "id": 1,
+      "question": "Will the Counter-Terrorists (Team 1) win the current round?",
+      "duration_minutes": 5,
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "baseline_value": "3 CTs vs 1 T alive; Score 7-1; 46 seconds remaining",
+      "prediction_type": "Objective"
+    },
+    "api_request": {
+      "question": "Will the Counter-Terrorists (Team 1) win the current round?",
+      "initialLiquidity": 10000000,
+      "endTime": 300,
+      "yesOddsBps": 5000
+    },
+    "api_response": {
+      "success": true,
+      "market": "DxjDjQV2iiaYU7SLiMSXMHNKyoLL2rJKTyHH8zCJA9wh",
+      "signature": "3aknzfKVdswhhG2fUrnFfVtR2VqzRWnjbP8V1dDyZjx7EYzuqoBbyTFBmDcrtqwq9MTZLfXfSdHJ2V5VFiX5vLfz",
+      "question": "Will the Counter-Terrorists (Team 1) win the current round?",
+      "network": "devnet",
+      "explorerUrl": "https://explorer.solana.com/address/DxjDjQV2iiaYU7SLiMSXMHNKyoLL2rJKTyHH8zCJA9wh?cluster=devnet",
+      "txUrl": "https://explorer.solana.com/tx/3aknzfKVdswhhG2fUrnFfVtR2VqzRWnjbP8V1dDyZjx7EYzuqoBbyTFBmDcrtqwq9MTZLfXfSdHJ2V5VFiX5vLfz?cluster=devnet"
+    }
+  },
+  {
+    "frame_id": 11,
+    "timestamp": "2026-02-01T23:52:12.644652",
+    "ollama_market": {
+      "id": 1042,
+      "question": "Will the Counter-Terrorists win the current round?",
+      "duration_minutes": 5,
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "baseline_value": "3 CTs vs 1 T alive; 85 seconds remaining",
+      "prediction_type": "Objective"
+    },
+    "api_request": {
+      "question": "Will the Counter-Terrorists win the current round?",
+      "initialLiquidity": 10000000,
+      "endTime": 300,
+      "yesOddsBps": 5000
+    },
+    "api_response": {
+      "success": true,
+      "market": "7zKktorgsJ3ae7tcVeq7MNrwYFdpuVBbJdxuyp64y3s2",
+      "signature": "23Hxe3MSegknSom3gcmrjMfcaqDBZZUKa89g28TqrV8fWELh6f9YWWoe7SwVvBwua3q7F4ZnTCgu7aj6LnLUxasa",
+      "question": "Will the Counter-Terrorists win the current round?",
+      "network": "devnet",
+      "explorerUrl": "https://explorer.solana.com/address/7zKktorgsJ3ae7tcVeq7MNrwYFdpuVBbJdxuyp64y3s2?cluster=devnet",
+      "txUrl": "https://explorer.solana.com/tx/23Hxe3MSegknSom3gcmrjMfcaqDBZZUKa89g28TqrV8fWELh6f9YWWoe7SwVvBwua3q7F4ZnTCgu7aj6LnLUxasa?cluster=devnet"
+    }
+  },
+  {
+    "frame_id": 13,
+    "timestamp": "2026-02-01T23:55:34.757513",
+    "ollama_market": {
+      "id": 1024,
+      "question": "Will Mocha Frappuccino record at least one more kill before the end of the current round?",
+      "duration_minutes": 5,
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "baseline_value": "1 kill currently recorded; 2 enemies remaining",
+      "prediction_type": "Kills"
+    },
+    "api_request": {
+      "question": "Will Mocha Frappuccino record at least one more kill before the end of the current round?",
+      "initialLiquidity": 10000000,
+      "endTime": 300,
+      "yesOddsBps": 5000
+    },
+    "api_response": {
+      "success": true,
+      "market": "2NqNLcn7xsL8S6QYJq3d7pBbj2qq9vLqyLGsdk753s2Q",
+      "signature": "23BdHVBi3HVv6v3uiLsiB149xrWSmZYVVJsfDPaBTBgrZuVxwXZNT5qqe7QnXsjTjYfXNA8VpU54iTMSAmEzAmFP",
+      "question": "Will Mocha Frappuccino record at least one more kill before the end of the current round?",
+      "network": "devnet",
+      "explorerUrl": "https://explorer.solana.com/address/2NqNLcn7xsL8S6QYJq3d7pBbj2qq9vLqyLGsdk753s2Q?cluster=devnet",
+      "txUrl": "https://explorer.solana.com/tx/23BdHVBi3HVv6v3uiLsiB149xrWSmZYVVJsfDPaBTBgrZuVxwXZNT5qqe7QnXsjTjYfXNA8VpU54iTMSAmEzAmFP?cluster=devnet"
+    }
+  },
+  {
+    "frame_id": 9,
+    "timestamp": "2026-02-01T23:58:46.397170",
+    "ollama_market": {
+      "id": 101,
+      "question": "Will the player Klim record at least one kill with the XM1014 shotgun during the current round?",
+      "duration_minutes": 5,
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "baseline_value": "Klim current kills this round: 0",
+      "prediction_type": "Weapon"
+    },
+    "api_request": {
+      "question": "Will the player Klim record at least one kill with the XM1014 shotgun during the current round?",
+      "initialLiquidity": 10000000,
+      "endTime": 300,
+      "yesOddsBps": 5000
+    },
+    "api_response": {
+      "success": true,
+      "market": "4s8JGB2V8patUsQhYHxquRPCsTaZok4i8gotkXuJr6Bm",
+      "signature": "2dbtcf1HiMUrekcqZ8yTFhGXPSHPS5fiXLXjHUpztUsSpYC47wZ33zHu3PMiBrhoNafsSyQbHwV76mvw8p6pS7uw",
+      "question": "Will the player Klim record at least one kill with the XM1014 shotgun during the current round?",
+      "network": "devnet",
+      "explorerUrl": "https://explorer.solana.com/address/4s8JGB2V8patUsQhYHxquRPCsTaZok4i8gotkXuJr6Bm?cluster=devnet",
+      "txUrl": "https://explorer.solana.com/tx/2dbtcf1HiMUrekcqZ8yTFhGXPSHPS5fiXLXjHUpztUsSpYC47wZ33zHu3PMiBrhoNafsSyQbHwV76mvw8p6pS7uw?cluster=devnet"
+    }
+  }
+]

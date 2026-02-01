@@ -13,6 +13,7 @@ from pathlib import Path
 from datetime import datetime
 from typing import Optional, Dict, Any, List, Set, Tuple
 import math
+import requests
 
 try:
     from rich.console import Console, Group
@@ -36,6 +37,16 @@ except ImportError:
     HAS_WATCHDOG = False
     print("Warning: 'watchdog' library not found. Install with: pip install watchdog")
     print("Falling back to polling mode.\n")
+
+# Import config for API URL
+try:
+    from config import MARKET_API_URL
+except ImportError:
+    import os
+    MARKET_API_URL = os.getenv("MARKET_API_URL", "http://localhost:3000")
+
+# Market data refresh interval (seconds)
+MARKET_REFRESH_INTERVAL = 10
 
 
 def load_game_context(json_path: Path) -> Dict[str, Any]:
@@ -104,6 +115,172 @@ def get_latest_frame_data(frames: List[Dict], username: str) -> Optional[Dict]:
 def format_money(money: int) -> str:
     """Format money value."""
     return f"${money:,}"
+
+
+def format_volume(volume: Optional[str], decimals: int = 6) -> str:
+    """Format volume value (assumes 6 decimals for USDC)."""
+    if not volume:
+        return "N/A"
+    try:
+        volume_num = int(volume) / (10 ** decimals)
+        return f"${volume_num:,.2f}"
+    except (ValueError, TypeError):
+        return volume
+
+
+def shorten_address(address: str, chars: int = 8) -> str:
+    """Shorten a Solana address for display."""
+    if not address or len(address) < chars * 2:
+        return address
+    return f"{address[:chars]}...{address[-chars:]}"
+
+
+def load_markets_json(username: str, verbose: bool = False) -> List[Dict]:
+    """Load markets.json array for the given username."""
+    markets_path = Path(__file__).parent.parent / "creator" / username / "markets.json"
+    
+    if verbose:
+        print(f"Loading markets from: {markets_path}")
+        print(f"Markets file exists: {markets_path.exists()}")
+    
+    if not markets_path.exists():
+        if verbose:
+            print(f"Markets file not found at: {markets_path}")
+        return []
+    
+    try:
+        with open(markets_path, 'r') as f:
+            markets = json.load(f)
+        if not isinstance(markets, list):
+            if verbose:
+                print(f"Warning: markets.json is not a list, got {type(markets)}")
+            return []
+        if verbose:
+            print(f"Successfully loaded {len(markets)} markets from JSON")
+        return markets
+    except (json.JSONDecodeError, IOError) as e:
+        if verbose:
+            print(f"Error loading markets.json: {e}")
+        return []
+
+
+def get_settled_markets(username: str) -> Dict[str, Dict]:
+    """
+    Get settled markets info from decision files.
+    Returns dict mapping market_address -> decision data.
+    """
+    decision_dir = Path(__file__).parent.parent / "decider" / username
+    if not decision_dir.exists():
+        return {}
+    
+    settled = {}
+    for decision_file in decision_dir.glob("decision_*.json"):
+        try:
+            with open(decision_file, 'r') as f:
+                decision_data = json.load(f)
+                market_address = decision_data.get("market_address")
+                if market_address and decision_data.get("settle_result", {}).get("success"):
+                    settled[market_address] = {
+                        "winner": decision_data.get("settle_result", {}).get("winner"),
+                        "winning_option": decision_data.get("decision", {}).get("winning_option"),
+                        "yes_winner": decision_data.get("yes_winner"),
+                    }
+        except (json.JSONDecodeError, IOError):
+            continue
+    
+    return settled
+
+
+def fetch_market_data(market_address: str, api_url: str = MARKET_API_URL, verbose: bool = False) -> Optional[Dict]:
+    """Fetch market data from API."""
+    try:
+        endpoint = f"{api_url}/market/{market_address}"
+        if verbose:
+            print(f"Fetching market data from: {endpoint}")
+        response = requests.get(endpoint, timeout=5)
+        response.raise_for_status()
+        result = response.json()
+        
+        if result.get("success"):
+            return result.get("market")
+        else:
+            if verbose:
+                error_msg = result.get("error", "Unknown error")
+                print(f"API returned error for market {market_address}: {error_msg}")
+            return None
+    except requests.exceptions.RequestException as e:
+        if verbose:
+            print(f"Request error fetching market {market_address}: {e}")
+        return None
+    except Exception as e:
+        if verbose:
+            print(f"Unexpected error fetching market {market_address}: {e}")
+        return None
+
+
+def get_all_markets_data(username: str, api_url: str = MARKET_API_URL, verbose: bool = False) -> List[Dict]:
+    """
+    Get all markets with their data from API.
+    Returns list of market dicts with API data merged, sorted by newest first.
+    """
+    try:
+        markets = load_markets_json(username, verbose=verbose)
+    except Exception as e:
+        if verbose:
+            print(f"Error loading markets.json: {e}")
+        return []
+    
+    settled_info = get_settled_markets(username)
+    
+    if verbose:
+        print(f"Found {len(markets)} markets in markets.json")
+    
+    if not markets:
+        return []
+    
+    result = []
+    fetch_errors = []
+    
+    for market in markets:
+        market_address = market.get("api_response", {}).get("market", "")
+        if not market_address:
+            if verbose:
+                print(f"Skipping market without address: {market.get('ollama_market', {}).get('question', 'Unknown')}")
+            # Still include market even without API data
+            merged = {
+                **market,
+                "market_data": None,
+                "settled_info": settled_info.get(market_address),
+            }
+            result.append(merged)
+            continue
+        
+        # Fetch market data from API
+        market_data = fetch_market_data(market_address, api_url, verbose=verbose)
+        
+        if not market_data:
+            fetch_errors.append(market_address)
+            if verbose:
+                print(f"Warning: Could not fetch data for market {market_address}")
+        
+        # Merge with local market data
+        merged = {
+            **market,
+            "market_data": market_data,
+            "settled_info": settled_info.get(market_address),
+        }
+        result.append(merged)
+    
+    # Sort by timestamp (newest first)
+    result.sort(key=lambda m: m.get("timestamp", ""), reverse=True)
+    
+    if verbose:
+        successful = len([m for m in result if m.get("market_data") is not None])
+        print(f"Returning {len(result)} markets ({successful} with API data, {len(fetch_errors)} failed)")
+        if fetch_errors:
+            print(f"Failed to fetch data for markets: {fetch_errors}")
+    
+    return result
 
 
 def string_to_vector(s: str, n: int = 2) -> Dict[str, int]:
@@ -289,8 +466,12 @@ def get_all_players_from_frames(frames: List[Dict]) -> List[Tuple[str, str, int,
 
 
 def create_dashboard_renderable(data: Dict[str, Any], username: str, player_data: Optional[Dict],
-                                all_kills: List[Dict], all_players: List[Tuple[str, str, int, int]]):
+                                all_kills: List[Dict], all_players: List[Tuple[str, str, int, int]],
+                                markets: Optional[List[Dict]] = None):
     """Create dashboard renderable for rich Live."""
+    if markets is None:
+        markets = []
+    
     session = data.get('session', {})
     frames = session.get('frames', [])
     
@@ -304,37 +485,135 @@ def create_dashboard_renderable(data: Dict[str, Any], username: str, player_data
         border_style="cyan"
     )
     
-    if not player_data:
-        return Group(header, Text(f"\n[red]Player '{username}' not found in any frame.[/red]"))
-    
-    frame = player_data['frame']
-    analysis = player_data['analysis']
-    team = player_data['team']
-    player = player_data['player_data']
+    # Get latest frame for game state (use player_data frame if available, otherwise get latest from frames)
+    if player_data:
+        frame = player_data['frame']
+        analysis = player_data['analysis']
+        team = player_data['team']
+        player = player_data['player_data']
+    else:
+        # Get latest frame from frames if player_data is not available
+        if frames:
+            frame = frames[-1]
+            analysis = frame.get('analysis', {})
+            team = {'name': '--', 'score': '--'}
+            player = {'name': '--', 'health': '--', 'money': '--'}
+        else:
+            frame = {}
+            analysis = {}
+            team = {'name': '--', 'score': '--'}
+            player = {'name': '--', 'health': '--', 'money': '--'}
     
     # Player Info Panel
     player_info = Table.grid(padding=0)
-    player_info.add_row("[bold]Name:[/bold]", f"[yellow]{player.get('name', 'Unknown')}[/yellow]")
-    player_info.add_row("[bold]Health:[/bold]", f"[{'green' if player.get('health', 0) > 50 else 'red'}]{player.get('health', 0)}[/]")
-    player_info.add_row("[bold]Money:[/bold]", f"[green]{format_money(player.get('money', 0))}[/green]")
-    player_info.add_row("[bold]Team:[/bold]", f"[cyan]{team.get('name', 'Unknown')}[/cyan]")
-    player_info.add_row("[bold]Team Score:[/bold]", f"[yellow]{team.get('score', 0)}[/yellow]")
+    if player_data:
+        player_info.add_row("[bold]Name:[/bold]", f"[yellow]{player.get('name', 'Unknown')}[/yellow]")
+        player_info.add_row("[bold]Health:[/bold]", f"[{'green' if player.get('health', 0) > 50 else 'red'}]{player.get('health', 0)}[/]")
+        player_info.add_row("[bold]Money:[/bold]", f"[green]{format_money(player.get('money', 0))}[/green]")
+        player_info.add_row("[bold]Team:[/bold]", f"[cyan]{team.get('name', 'Unknown')}[/cyan]")
+        player_info.add_row("[bold]Team Score:[/bold]", f"[yellow]{team.get('score', 0)}[/yellow]")
+    else:
+        player_info.add_row("[bold]Name:[/bold]", "[dim]--[/dim]")
+        player_info.add_row("[bold]Health:[/bold]", "[dim]--[/dim]")
+        player_info.add_row("[bold]Money:[/bold]", "[dim]--[/dim]")
+        player_info.add_row("[bold]Team:[/bold]", "[dim]--[/dim]")
+        player_info.add_row("[bold]Team Score:[/bold]", "[dim]--[/dim]")
     
-    player_panel = Panel(player_info, title=f"Player: {username}", border_style="yellow")
+    player_panel = Panel(
+        player_info, 
+        title=f"Player: {username}" + (" [dim](not found)[/dim]" if not player_data else ""), 
+        border_style="yellow" if player_data else "dim"
+    )
     
     # Game State Panel
-    state = analysis.get('state', {})
+    state = analysis.get('state', {}) if analysis else {}
     game_state = Table.grid(padding=0)
-    game_state.add_row("[bold]Map:[/bold]", f"[magenta]{analysis.get('map', 'Unknown')}[/magenta]")
-    game_state.add_row("[bold]Timer:[/bold]", f"[cyan]{state.get('timer', 0)}[/cyan]")
-    game_state.add_row("[bold]Score:[/bold]", f"Team1: [yellow]{state.get('score', {}).get('team1', 0)}[/yellow] | Team2: [yellow]{state.get('score', {}).get('team2', 0)}[/yellow]")
-    game_state.add_row("[bold]Players:[/bold]", f"Team1: [green]{state.get('players', {}).get('team1', 0)}[/green] | Team2: [green]{state.get('players', {}).get('team2', 0)}[/green]")
+    if analysis:
+        game_state.add_row("[bold]Map:[/bold]", f"[magenta]{analysis.get('map', 'Unknown')}[/magenta]")
+        game_state.add_row("[bold]Timer:[/bold]", f"[cyan]{state.get('timer', 0)}[/cyan]")
+        game_state.add_row("[bold]Score:[/bold]", f"Team1: [yellow]{state.get('score', {}).get('team1', 0)}[/yellow] | Team2: [yellow]{state.get('score', {}).get('team2', 0)}[/yellow]")
+        game_state.add_row("[bold]Players:[/bold]", f"Team1: [green]{state.get('players', {}).get('team1', 0)}[/green] | Team2: [green]{state.get('players', {}).get('team2', 0)}[/green]")
+    else:
+        game_state.add_row("[bold]Map:[/bold]", "[dim]--[/dim]")
+        game_state.add_row("[bold]Timer:[/bold]", "[dim]--[/dim]")
+        game_state.add_row("[bold]Score:[/bold]", "[dim]--[/dim]")
+        game_state.add_row("[bold]Players:[/bold]", "[dim]--[/dim]")
     
-    state_panel = Panel(game_state, title="Game State", border_style="green")
+    state_panel = Panel(game_state, title="Game State", border_style="green" if analysis else "dim")
+    
+    # Markets Cards - Only show active markets
+    active_markets = []
+    if markets:
+        for market in markets:
+            market_data = market.get("market_data") or {}
+            ollama_market = market.get("ollama_market", {})
+            settled_info = market.get("settled_info")
+            
+            # Check if market is settled
+            is_settled = False
+            if settled_info:
+                is_settled = True
+            elif market_data and market_data.get("resolved"):
+                is_settled = True
+            
+            # Only include active markets
+            if not is_settled:
+                active_markets.append(market)
+    
+    # Create market cards
+    market_cards = []
+    if active_markets:
+        for market in active_markets:
+            market_data = market.get("market_data") or {}
+            ollama_market = market.get("ollama_market", {})
+            
+            question = ollama_market.get("question", market_data.get("question", "N/A"))
+            market_address = market.get("api_response", {}).get("market", "")
+            address_display = shorten_address(market_address, 8) if market_address else "N/A"
+            
+            # Volume
+            if market_data:
+                volume = format_volume(market_data.get("totalVolume"))
+            else:
+                volume = "[dim]Loading...[/dim]"
+            
+            # Options
+            options = ollama_market.get("options", [])
+            if options:
+                options_text = " | ".join([f"[cyan]{opt}[/cyan]" for opt in options])
+            else:
+                options_text = "[dim]N/A[/dim]"
+            
+            # Build card content
+            card_content = Table.grid(padding=(0, 1))
+            card_content.add_row("[bold]Question:[/bold]", question)
+            card_content.add_row("[bold]Address:[/bold]", f"[blue]{address_display}[/blue]")
+            card_content.add_row("[bold]Volume:[/bold]", f"[green]{volume}[/green]")
+            card_content.add_row("[bold]Options:[/bold]", options_text)
+            
+            # Create card panel
+            market_card = Panel(
+                card_content,
+                title=f"[yellow]● Active Market[/yellow]",
+                border_style="yellow",
+                padding=(0, 1)
+            )
+            market_cards.append(market_card)
+    
+    # Group all market cards
+    if market_cards:
+        markets_panel = Group(*market_cards)
+    else:
+        # Show message when no active markets
+        markets_panel = Panel(
+            "[dim]No active markets. Waiting for new markets to be created...[/dim]",
+            title="Active Markets",
+            border_style="dim"
+        )
     
     # Weapons Table
     weapons_panel = None
-    weapons = analysis.get('weapon', [])
+    weapons = analysis.get('weapon', []) if analysis else []
     if weapons:
         weapons_table = Table(title="Weapons", show_header=True, header_style="bold magenta", box=box.ROUNDED)
         weapons_table.add_column("Name", style="cyan")
@@ -391,13 +670,20 @@ def create_dashboard_renderable(data: Dict[str, Any], username: str, player_data
         kills_panel = kills_table
     
     # Frame Info
-    frame_info = Panel(
-        f"Frame: [bold]{frame.get('frame_number', 'Unknown')}[/bold]\n"
-        f"Timestamp: [blue]{frame.get('timestamp', 'Unknown')}[/blue]\n"
-        f"Processing Time: [yellow]{frame.get('processing_time_seconds', 0):.2f}s[/yellow]",
-        title="Frame Info",
-        border_style="dim"
-    )
+    if frame:
+        frame_info = Panel(
+            f"Frame: [bold]{frame.get('frame_number', 'Unknown')}[/bold]\n"
+            f"Timestamp: [blue]{frame.get('timestamp', 'Unknown')}[/blue]\n"
+            f"Processing Time: [yellow]{frame.get('processing_time_seconds', 0):.2f}s[/yellow]",
+            title="Frame Info",
+            border_style="dim"
+        )
+    else:
+        frame_info = Panel(
+            "[dim]--[/dim]",
+            title="Frame Info",
+            border_style="dim"
+        )
     
     # Build renderable group
     renderables = [
@@ -416,11 +702,15 @@ def create_dashboard_renderable(data: Dict[str, Any], username: str, player_data
     
     # renderables.append(frame_info)
     
+    # Add markets panel at the very bottom
+    renderables.append(markets_panel)
+    
     return Group(*renderables)
 
 
 def render_dashboard_basic(data: Dict[str, Any], username: str, player_data: Optional[Dict],
-                           all_kills: List[Dict], all_players: List[Tuple[str, str, int, int]]):
+                           all_kills: List[Dict], all_players: List[Tuple[str, str, int, int]],
+                           markets: List[Dict] = None):
     """Render dashboard using basic terminal output."""
     session = data.get('session', {})
     frames = session.get('frames', [])
@@ -435,34 +725,57 @@ def render_dashboard_basic(data: Dict[str, Any], username: str, player_data: Opt
     print("=" * 80)
     print()
     
-    if not player_data:
-        print(f"Player '{username}' not found in any frame.")
-        return
+    # Get latest frame for game state (use player_data frame if available, otherwise get latest from frames)
+    if player_data:
+        frame = player_data['frame']
+        analysis = player_data['analysis']
+        team = player_data['team']
+        player = player_data['player_data']
+    else:
+        # Get latest frame from frames if player_data is not available
+        if frames:
+            frame = frames[-1]
+            analysis = frame.get('analysis', {})
+            team = {'name': '--', 'score': '--'}
+            player = {'name': '--', 'health': '--', 'money': '--'}
+        else:
+            frame = {}
+            analysis = {}
+            team = {'name': '--', 'score': '--'}
+            player = {'name': '--', 'health': '--', 'money': '--'}
     
-    frame = player_data['frame']
-    analysis = player_data['analysis']
-    team = player_data['team']
-    player = player_data['player_data']
-    
-    print(f"PLAYER: {username}")
+    print(f"PLAYER: {username}" + (" (not found)" if not player_data else ""))
     print("-" * 80)
-    print(f"  Name: {player.get('name', 'Unknown')}")
-    print(f"  Health: {player.get('health', 0)}")
-    print(f"  Money: ${player.get('money', 0):,}")
-    print(f"  Team: {team.get('name', 'Unknown')}")
-    print(f"  Team Score: {team.get('score', 0)}")
+    if player_data:
+        print(f"  Name: {player.get('name', 'Unknown')}")
+        print(f"  Health: {player.get('health', 0)}")
+        print(f"  Money: ${player.get('money', 0):,}")
+        print(f"  Team: {team.get('name', 'Unknown')}")
+        print(f"  Team Score: {team.get('score', 0)}")
+    else:
+        print(f"  Name: --")
+        print(f"  Health: --")
+        print(f"  Money: --")
+        print(f"  Team: --")
+        print(f"  Team Score: --")
     print()
     
     print("GAME STATE")
     print("-" * 80)
-    state = analysis.get('state', {})
-    print(f"  Map: {analysis.get('map', 'Unknown')}")
-    print(f"  Timer: {state.get('timer', 0)}")
-    print(f"  Score: Team1: {state.get('score', {}).get('team1', 0)} | Team2: {state.get('score', {}).get('team2', 0)}")
-    print(f"  Players: Team1: {state.get('players', {}).get('team1', 0)} | Team2: {state.get('players', {}).get('team2', 0)}")
+    if analysis:
+        state = analysis.get('state', {})
+        print(f"  Map: {analysis.get('map', 'Unknown')}")
+        print(f"  Timer: {state.get('timer', 0)}")
+        print(f"  Score: Team1: {state.get('score', {}).get('team1', 0)} | Team2: {state.get('score', {}).get('team2', 0)}")
+        print(f"  Players: Team1: {state.get('players', {}).get('team1', 0)} | Team2: {state.get('players', {}).get('team2', 0)}")
+    else:
+        print(f"  Map: --")
+        print(f"  Timer: --")
+        print(f"  Score: --")
+        print(f"  Players: --")
     print()
     
-    weapons = analysis.get('weapon', [])
+    weapons = analysis.get('weapon', []) if analysis else []
     if weapons:
         print("-" * 80)
         for weapon in weapons:
@@ -492,26 +805,90 @@ def render_dashboard_basic(data: Dict[str, Any], username: str, player_data: Opt
     print(f"  Timestamp: {frame.get('timestamp', 'Unknown')}")
     print(f"  Processing Time: {frame.get('processing_time_seconds', 0):.2f}s")
     print("=" * 80)
+    print()
+    
+    # Markets - Only show active markets (at the bottom)
+    active_markets = []
+    if markets:
+        for market in markets:
+            market_data = market.get("market_data") or {}
+            settled_info = market.get("settled_info")
+            
+            # Check if market is settled
+            is_settled = False
+            if settled_info:
+                is_settled = True
+            elif market_data and market_data.get("resolved"):
+                is_settled = True
+            
+            # Only include active markets
+            if not is_settled:
+                active_markets.append(market)
+    
+    if active_markets:
+        print("=" * 80)
+        print("ACTIVE MARKETS")
+        print("=" * 80)
+        for market in active_markets:
+            market_data = market.get("market_data") or {}
+            ollama_market = market.get("ollama_market", {})
+            
+            question = ollama_market.get("question", market_data.get("question", "N/A"))
+            market_address = market.get("api_response", {}).get("market", "")
+            address_display = shorten_address(market_address, 8) if market_address else "N/A"
+            
+            if market_data:
+                volume = format_volume(market_data.get("totalVolume"))
+            else:
+                volume = "Loading..."
+            
+            options = ollama_market.get("options", [])
+            options_display = " | ".join(options) if options else "N/A"
+            
+            print(f"  [ACTIVE] {question}")
+            print(f"    Address: {address_display} | Volume: {volume} | Options: {options_display}")
+            print()
+    else:
+        print("=" * 80)
+        print("ACTIVE MARKETS")
+        print("=" * 80)
+        print("  No active markets. Waiting for new markets to be created...")
+        print()
 
 
 if HAS_WATCHDOG:
     class GameContextHandler(FileSystemEventHandler):
-        """File system event handler for game context file."""
+        """File system event handler for game context file and markets.json."""
         
         def __init__(self, json_path: Path, username: str, update_func):
             self.json_path = json_path
+            self.markets_path = json_path.parent.parent / 'creator' / username / 'markets.json'
             self.username = username
             self.update_func = update_func
             self.last_modified = 0
+            self.last_markets_modified = 0
         
         def on_modified(self, event):
             """Handle file modification event."""
-            if event.src_path == str(self.json_path):
-                # Check if file was actually modified (avoid duplicate events)
+            file_path = Path(event.src_path)
+            
+            # Handle game_context.json changes
+            if file_path == self.json_path:
                 try:
                     current_mtime = self.json_path.stat().st_mtime
                     if current_mtime != self.last_modified:
                         self.last_modified = current_mtime
+                        time.sleep(0.1)  # Small delay to ensure file write is complete
+                        self.update_func()
+                except Exception:
+                    pass
+            
+            # Handle markets.json changes
+            elif file_path == self.markets_path:
+                try:
+                    current_mtime = self.markets_path.stat().st_mtime
+                    if current_mtime != self.last_markets_modified:
+                        self.last_markets_modified = current_mtime
                         time.sleep(0.1)  # Small delay to ensure file write is complete
                         self.update_func()
                 except Exception:
@@ -533,7 +910,7 @@ def wait_for_game_context(json_path: Path, console: Optional[Any] = None) -> Non
         time.sleep(1)
 
 
-def update_dashboard_data(json_path: Path, username: str) -> Optional[Dict]:
+def update_dashboard_data(json_path: Path, username: str, api_url: str = MARKET_API_URL, debug: bool = False) -> Optional[Dict]:
     """Load data and return dashboard data dict."""
     try:
         data = load_game_context(json_path)
@@ -550,11 +927,15 @@ def update_dashboard_data(json_path: Path, username: str) -> Optional[Dict]:
     all_kills = get_all_kills_from_frames(frames)
     all_players = get_all_players_from_frames(frames)
     
+    # Get markets data (fetch from API)
+    markets = get_all_markets_data(username, api_url, verbose=debug)
+    
     return {
         'data': data,
         'player_data': player_data,
         'all_kills': all_kills,
-        'all_players': all_players
+        'all_players': all_players,
+        'markets': markets
     }
 
 
@@ -568,6 +949,16 @@ def main():
         "username",
         help="Username to filter and display"
     )
+    parser.add_argument(
+        "--api-url",
+        default=MARKET_API_URL,
+        help=f"API base URL (default: {MARKET_API_URL})"
+    )
+    parser.add_argument(
+        "--debug",
+        action="store_true",
+        help="Enable debug output for market fetching"
+    )
     args = parser.parse_args()
     
     username = args.username
@@ -575,6 +966,7 @@ def main():
     # Load game context
     script_dir = Path(__file__).parent
     json_path = script_dir.parent / 'watcher' / username / 'game_context.json'
+    markets_path = script_dir.parent / 'creator' / username / 'markets.json'
     
     if HAS_RICH:
         # Use Live context manager for in-place updates
@@ -583,11 +975,32 @@ def main():
         # Wait for game context file to exist
         wait_for_game_context(json_path, console)
         
-        dashboard_data = update_dashboard_data(json_path, username)
+        # Show API URL being used
+        if args.debug:
+            console.print(f"[dim]Using API URL: {args.api_url}[/dim]")
+        
+        dashboard_data = update_dashboard_data(json_path, username, args.api_url, debug=args.debug)
         
         if dashboard_data is None:
             console.print(f"[red]Error loading game context file.[/red]")
             sys.exit(1)
+        
+        # Show markets info and verify they're being loaded
+        markets_list = dashboard_data.get('markets') or []
+        markets_count = len(markets_list)
+        
+        if args.debug:
+            console.print(f"[dim]Markets loaded: {markets_count}[/dim]")
+            if markets_count > 0:
+                markets_with_data = len([m for m in markets_list if m.get('market_data')])
+                console.print(f"[dim]Markets with API data: {markets_with_data}[/dim]")
+                for i, market in enumerate(markets_list[:3]):  # Show first 3
+                    market_addr = market.get("api_response", {}).get("market", "N/A")
+                    has_data = "✓" if market.get('market_data') else "✗"
+                    console.print(f"[dim]  Market {i+1}: {market_addr[:20]}... {has_data} API data[/dim]")
+            else:
+                console.print(f"[yellow]No markets found in markets.json[/yellow]")
+            console.print()  # Empty line
         
         # Create initial renderable
         renderable = create_dashboard_renderable(
@@ -595,11 +1008,14 @@ def main():
             username,
             dashboard_data['player_data'],
             dashboard_data['all_kills'],
-            dashboard_data['all_players']
+            dashboard_data['all_players'],
+            markets_list
         )
         
         # Set up signal handler for graceful exit
         running = [True]
+        last_market_refresh = [time.time()]
+        last_markets_mtime = [markets_path.stat().st_mtime if markets_path.exists() else 0]
         
         def signal_handler(sig, frame):
             running[0] = False
@@ -609,14 +1025,31 @@ def main():
         # Update function for Live context
         def update_renderable():
             nonlocal renderable
-            new_data = update_dashboard_data(json_path, username)
+            current_time = time.time()
+            
+            # Check if we need to refresh markets (every 10 seconds or if markets.json changed)
+            refresh_markets = False
+            if markets_path.exists():
+                current_mtime = markets_path.stat().st_mtime
+                if current_mtime != last_markets_mtime[0]:
+                    refresh_markets = True
+                    last_markets_mtime[0] = current_mtime
+            elif current_time - last_market_refresh[0] >= MARKET_REFRESH_INTERVAL:
+                refresh_markets = True
+            
+            if refresh_markets:
+                last_market_refresh[0] = current_time
+            
+            new_data = update_dashboard_data(json_path, username, args.api_url, debug=args.debug)
             if new_data is not None:
+                markets_list = new_data.get('markets') or []
                 renderable = create_dashboard_renderable(
                     new_data['data'],
                     username,
                     new_data['player_data'],
                     new_data['all_kills'],
-                    new_data['all_players']
+                    new_data['all_players'],
+                    markets_list
                 )
             # If new_data is None, keep the existing renderable
         
@@ -625,11 +1058,19 @@ def main():
             event_handler = GameContextHandler(json_path, username, update_renderable)
             observer = Observer()
             observer.schedule(event_handler, path=str(json_path.parent), recursive=False)
+            # Also watch markets.json if it exists
+            if markets_path.parent.exists():
+                observer.schedule(event_handler, path=str(markets_path.parent), recursive=False)
             observer.start()
             
             try:
                 with Live(renderable, console=console, refresh_per_second=4, screen=True) as live:
                     while running[0]:
+                        # Check if markets need refresh (every 10 seconds)
+                        current_time = time.time()
+                        if current_time - last_market_refresh[0] >= MARKET_REFRESH_INTERVAL:
+                            update_renderable()
+                        
                         live.update(renderable)
                         time.sleep(0.25)  # Update 4 times per second
             except KeyboardInterrupt:
@@ -644,12 +1085,19 @@ def main():
             try:
                 with Live(renderable, console=console, refresh_per_second=4, screen=True) as live:
                     while running[0]:
+                        # Check for game context updates
                         if json_path.exists():
                             current_mtime = json_path.stat().st_mtime
                             if current_mtime != last_mtime:
                                 last_mtime = current_mtime
                                 time.sleep(0.1)  # Small delay to ensure file write is complete
                                 update_renderable()
+                        
+                        # Check if markets need refresh (every 10 seconds)
+                        current_time = time.time()
+                        if current_time - last_market_refresh[0] >= MARKET_REFRESH_INTERVAL:
+                            update_renderable()
+                        
                         live.update(renderable)
                         time.sleep(0.25)  # Update 4 times per second
             except KeyboardInterrupt:
@@ -661,15 +1109,24 @@ def main():
         # Wait for game context file to exist
         wait_for_game_context(json_path)
         
+        last_market_refresh_basic = [time.time()]
+        
         def update_basic_dashboard():
-            dashboard_data = update_dashboard_data(json_path, username)
+            current_time = time.time()
+            # Refresh markets every 10 seconds
+            refresh_markets = (current_time - last_market_refresh_basic[0] >= MARKET_REFRESH_INTERVAL)
+            if refresh_markets:
+                last_market_refresh_basic[0] = current_time
+            
+            dashboard_data = update_dashboard_data(json_path, username, args.api_url, debug=args.debug)
             if dashboard_data:
                 render_dashboard_basic(
                     dashboard_data['data'],
                     username,
                     dashboard_data['player_data'],
                     dashboard_data['all_kills'],
-                    dashboard_data['all_players']
+                    dashboard_data['all_players'],
+                    dashboard_data.get('markets', [])
                 )
         
         # Initial render
@@ -689,10 +1146,17 @@ def main():
             event_handler = GameContextHandler(json_path, username, update_basic_dashboard)
             observer = Observer()
             observer.schedule(event_handler, path=str(json_path.parent), recursive=False)
+            # Also watch markets.json if it exists
+            if markets_path.parent.exists():
+                observer.schedule(event_handler, path=str(markets_path.parent), recursive=False)
             observer.start()
             
             try:
                 while running[0]:
+                    # Check if markets need refresh (every 10 seconds)
+                    current_time = time.time()
+                    if current_time - last_market_refresh_basic[0] >= MARKET_REFRESH_INTERVAL:
+                        update_basic_dashboard()
                     time.sleep(0.1)
             except KeyboardInterrupt:
                 pass
@@ -702,15 +1166,35 @@ def main():
         else:
             # Polling mode
             last_mtime = json_path.stat().st_mtime if json_path.exists() else 0
+            last_markets_mtime = markets_path.stat().st_mtime if markets_path.exists() else 0
             
             try:
                 while running[0]:
+                    current_time = time.time()
+                    should_update = False
+                    
+                    # Check for game context updates
                     if json_path.exists():
                         current_mtime = json_path.stat().st_mtime
                         if current_mtime != last_mtime:
                             last_mtime = current_mtime
-                            time.sleep(0.1)  # Small delay to ensure file write is complete
-                            update_basic_dashboard()
+                            should_update = True
+                    
+                    # Check for markets.json updates
+                    if markets_path.exists():
+                        current_markets_mtime = markets_path.stat().st_mtime
+                        if current_markets_mtime != last_markets_mtime:
+                            last_markets_mtime = current_markets_mtime
+                            should_update = True
+                    
+                    # Check if markets need refresh (every 10 seconds)
+                    if current_time - last_market_refresh_basic[0] >= MARKET_REFRESH_INTERVAL:
+                        should_update = True
+                    
+                    if should_update:
+                        time.sleep(0.1)  # Small delay to ensure file write is complete
+                        update_basic_dashboard()
+                    
                     time.sleep(0.5)  # Poll every 500ms
             except KeyboardInterrupt:
                 pass
