@@ -4,6 +4,7 @@ Terminal dashboard to display game context information filtered by username.
 Runs continuously and updates on file changes.
 """
 
+import argparse
 import json
 import sys
 import time
@@ -408,7 +409,7 @@ def create_dashboard_renderable(data: Dict[str, Any], username: str, player_data
     if weapons_panel:
         renderables.extend([weapons_panel])
     
-    renderables.append(teams_table)
+    # renderables.append(teams_table)
     
     if kills_panel:
         renderables.extend([kills_panel])
@@ -522,6 +523,16 @@ else:
         pass
 
 
+def wait_for_game_context(json_path: Path, console: Optional[Any] = None) -> None:
+    """Wait for game context file to exist, retrying every 1 second."""
+    while not json_path.exists():
+        if console:
+            console.print(f"[yellow]Waiting for game context file: {json_path}[/yellow]")
+        else:
+            print(f"Waiting for game context file: {json_path}")
+        time.sleep(1)
+
+
 def update_dashboard_data(json_path: Path, username: str) -> Optional[Dict]:
     """Load data and return dashboard data dict."""
     try:
@@ -549,23 +560,29 @@ def update_dashboard_data(json_path: Path, username: str) -> Optional[Dict]:
 
 def main():
     """Main function."""
-    # Get username from command line or prompt
-    if len(sys.argv) > 1:
-        username = sys.argv[1]
-    else:
-        username = input("Enter username: ").strip()
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(
+        description="Terminal dashboard to display game context information filtered by username"
+    )
+    parser.add_argument(
+        "username",
+        help="Username to filter and display"
+    )
+    args = parser.parse_args()
     
-    if not username:
-        print("Error: Username cannot be empty.")
-        sys.exit(1)
+    username = args.username
     
     # Load game context
     script_dir = Path(__file__).parent
-    json_path = script_dir.parent / 'watcher' / 'zeus' / 'game_context.json'
+    json_path = script_dir.parent / 'watcher' / username / 'game_context.json'
     
     if HAS_RICH:
         # Use Live context manager for in-place updates
         console = Console()
+        
+        # Wait for game context file to exist
+        wait_for_game_context(json_path, console)
+        
         dashboard_data = update_dashboard_data(json_path, username)
         
         if dashboard_data is None:
@@ -601,6 +618,7 @@ def main():
                     new_data['all_kills'],
                     new_data['all_players']
                 )
+            # If new_data is None, keep the existing renderable
         
         # Set up file watching
         if HAS_WATCHDOG:
@@ -640,6 +658,9 @@ def main():
         console.print("\n[yellow]Shutting down...[/yellow]")
     else:
         # Basic mode - fallback to original behavior
+        # Wait for game context file to exist
+        wait_for_game_context(json_path)
+        
         def update_basic_dashboard():
             dashboard_data = update_dashboard_data(json_path, username)
             if dashboard_data:

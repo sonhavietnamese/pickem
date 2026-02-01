@@ -1,0 +1,372 @@
+{
+  "session": {
+    "streamer": "mantuuu",
+    "start_time": "2026-02-01T21:48:14.667359",
+    "frames": [
+      {
+        "frame_number": 1,
+        "timestamp": "2026-02-01T21:48:17.705972",
+        "frame_filename": "mantuuu/debug/frame_20260201_214818.jpg",
+        "analysis": {
+          "map": "none",
+          "weapon": [],
+          "state": {
+            "timer": 0,
+            "score": {
+              "team1": 0,
+              "team2": 0
+            },
+            "players": {
+              "team1": 0,
+              "team2": 0
+            }
+          },
+          "player": {
+            "health": 0,
+            "money": 0
+          },
+          "teams": [],
+          "kills": []
+        },
+        "processing_time_seconds": 5.1442
+      },
+      {
+        "frame_number": 2,
+        "timestamp": "2026-02-01T21:48:54.074173",
+        "frame_filename": "mantuuu/debug/frame_20260201_214855.jpg",
+        "analysis": {
+          "map": "Mirage",
+          "weapon": [
+            {
+              "name": "Desert Eagle",
+              "type": "Pistol",
+              "skin": "Mulberry",
+              "ammo": 7,
+              "is_active": true
+            },
+            {
+              "name": "Knife",
+              "type": "Melee",
+              "skin": "Default",
+              "ammo": 0,
+              "is_active": false
+            },
+            {
+              "name": "High Explosive Grenade",
+              "type": "Grenade",
+              "skin": "Default",
+              "ammo": 1,
+              "is_active": false
+            },
+            {
+              "name": "Flashbang",
+              "type": "Grenade",
+              "skin": "Default",
+              "ammo": 1,
+              "is_active": false
+            },
+            {
+              "name": "Smoke Grenade",
+              "type": "Grenade",
+              "skin": "Default",
+              "ammo": 1,
+              "is_active": false
+            },
+            {
+              "name": "Incendiary Grenade",
+              "type": "Grenade",
+              "skin": "Default",
+              "ammo": 1,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 84,
+            "score": {
+              "team1": 7,
+              "team2": 3
+            },
+            "players": {
+              "team1": 3,
+              "team2": 3
+            }
+          },
+          "player": {
+            "health": 100,
+            "money": 5750
+          },
+          "teams": [
+            {
+              "name": "Counter-Terrorists",
+              "score": 7,
+              "players": [
+                {
+                  "name": "mantuu",
+                  "health": 100,
+                  "money": 5750
+                },
+                {
+                  "name": "ANDOR",
+                  "health": 100,
+                  "money": 0
+                }
+              ]
+            },
+            {
+              "name": "Terrorists",
+              "score": 3,
+              "players": []
+            }
+          ],
+          "kills": [
+            {
+              "killer": "ANDOR",
+              "victim": "Viso",
+              "weapon": "ak47"
+            },
+            {
+              "killer": "ANDOR",
+              "victim": "TdZM",
+              "weapon": "ak47"
+            }
+          ]
+        },
+        "processing_time_seconds": 18.7854
+      },
+      {
+        "frame_number": 3,
+        "timestamp": "2026-02-01T21:49:44.223714",
+        "frame_filename": "mantuuu/debug/frame_20260201_214945.jpg",
+        "analysis": {
+          "map": "de_mirage",
+          "weapon": [
+            {
+              "name": "AK-47",
+              "type": "Rifle",
+              "skin": "Default (Named: manci's AK-47)",
+              "ammo": 20,
+              "is_active": true
+            },
+            {
+              "name": "P250",
+              "type": "Pistol",
+              "skin": "Default",
+              "ammo": 13,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 0,
+            "score": {
+              "team1": 7,
+              "team2": 3
+            },
+            "players": {
+              "team1": 1,
+              "team2": 2
+            }
+          },
+          "player": {
+            "health": 23,
+            "money": 9750
+          },
+          "teams": [
+            {
+              "name": "Terrorists",
+              "score": 7,
+              "players": [
+                {
+                  "name": "MR.N@P@S",
+                  "health": 23,
+                  "money": 9750
+                },
+                {
+                  "name": "Skyfusion",
+                  "health": 0,
+                  "money": 4850
+                },
+                {
+                  "name": "DigBick",
+                  "health": 0,
+                  "money": 7800
+                },
+                {
+                  "name": "ANDOR",
+                  "health": 0,
+                  "money": 3950
+                },
+                {
+                  "name": "DADDY",
+                  "health": 0,
+                  "money": 5750
+                }
+              ]
+            },
+            {
+              "name": "Counter-Terrorists",
+              "score": 3,
+              "players": [
+                {
+                  "name": "manci",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "xertioNic",
+                  "health": 100,
+                  "money": 0
+                },
+                {
+                  "name": "Hyper WILD",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "Viso",
+                  "health": 0,
+                  "money": 0
+                },
+                {
+                  "name": "TdZM",
+                  "health": 0,
+                  "money": 0
+                }
+              ]
+            }
+          ],
+          "kills": []
+        },
+        "processing_time_seconds": 25.8931
+      },
+      {
+        "frame_number": 1,
+        "timestamp": "2026-02-01T21:55:55.059045",
+        "frame_filename": "mantuuu/debug/frame_20260201_215556.jpg",
+        "analysis": {
+          "map": "Mirage",
+          "weapon": [
+            {
+              "name": "Desert Eagle",
+              "type": "Pistol",
+              "skin": "Printstream",
+              "ammo": 7,
+              "is_active": true
+            },
+            {
+              "name": "Knife",
+              "type": "Melee",
+              "skin": "Default",
+              "ammo": 0,
+              "is_active": false
+            },
+            {
+              "name": "Flashbang",
+              "type": "Grenade",
+              "skin": "none",
+              "ammo": 1,
+              "is_active": false
+            },
+            {
+              "name": "Smoke Grenade",
+              "type": "Grenade",
+              "skin": "none",
+              "ammo": 1,
+              "is_active": false
+            }
+          ],
+          "state": {
+            "timer": 87,
+            "score": {
+              "team1": 6,
+              "team2": 8
+            },
+            "players": {
+              "team1": 5,
+              "team2": 3
+            }
+          },
+          "player": {
+            "health": 100,
+            "money": 950
+          },
+          "teams": [
+            {
+              "name": "Terrorists",
+              "score": 6,
+              "players": []
+            },
+            {
+              "name": "Counter-Terrorists",
+              "score": 8,
+              "players": [
+                {
+                  "name": "mantuuu",
+                  "health": 100,
+                  "money": 950
+                }
+              ]
+            }
+          ],
+          "kills": []
+        },
+        "processing_time_seconds": 12.1587
+      },
+      {
+        "frame_number": 2,
+        "timestamp": "2026-02-01T21:56:13.475039",
+        "frame_filename": "mantuuu/debug/frame_20260201_215614.jpg",
+        "analysis": {
+          "map": "none",
+          "weapon": [],
+          "state": {
+            "timer": 0,
+            "score": {
+              "team1": 0,
+              "team2": 0
+            },
+            "players": {
+              "team1": 0,
+              "team2": 0
+            }
+          },
+          "player": {
+            "health": 0,
+            "money": 0
+          },
+          "teams": [],
+          "kills": []
+        },
+        "processing_time_seconds": 7.3698
+      },
+      {
+        "frame_number": 3,
+        "timestamp": "2026-02-01T21:56:27.170305",
+        "frame_filename": "mantuuu/debug/frame_20260201_215628.jpg",
+        "analysis": {
+          "map": "Not visible",
+          "weapon": [],
+          "state": {
+            "timer": 0,
+            "score": {
+              "team1": 0,
+              "team2": 0
+            },
+            "players": {
+              "team1": 0,
+              "team2": 0
+            }
+          },
+          "player": {
+            "health": 0,
+            "money": 0
+          },
+          "teams": [],
+          "kills": []
+        },
+        "processing_time_seconds": 5.0768
+      }
+    ],
+    "last_update": "2026-02-01T21:56:27.170305",
+    "total_frames": 3
+  }
+}
