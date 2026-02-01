@@ -1,0 +1,12 @@
+{
+  "frame_id": 4,
+  "id": 1001,
+  "question": "Will the Terrorist team win the current round?",
+  "duration_minutes": 3,
+  "options": [
+    "Yes (Terrorists Win)",
+    "No (Counter-Terrorists Win)"
+  ],
+  "baseline_value": "Score 0-0; 2 Terrorists vs 1 Counter-Terrorist alive",
+  "prediction_type": "Score"
+}

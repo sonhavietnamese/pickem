@@ -1,0 +1,12 @@
+{
+  "frame_id": 5,
+  "id": 1084,
+  "question": "Will Team 1 (Terrorists) win the current round to reach a score of 4-0?",
+  "duration_minutes": 5,
+  "options": [
+    "Yes",
+    "No"
+  ],
+  "baseline_value": "Current Score: 3-0; Players Alive: 2 (T) vs 1 (CT)",
+  "prediction_type": "Score"
+}
